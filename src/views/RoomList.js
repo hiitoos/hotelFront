@@ -30,8 +30,8 @@ class RoomList extends Component {
                             <Row>
                                 <Col lg={5}>
                                     <img src={require(`../assets/img/${rooms.codigo}.jpg`)} alt="imagen1"/>
-                                </Col>
-                                <Col lg={3} className="roomInfo">
+                                </Col><br/>
+                                <Col lg={4} className="roomInfo">
                                     <Row className="roomName">
                                         {rooms.codigo}
                                     </Row>
@@ -39,7 +39,7 @@ class RoomList extends Component {
                                         {rooms.descripcion}
                                     </Row>
                                 </Col>
-                                <Col lg={4} >
+                                <Col lg={3} >
                                     <Row className="roomPrice">
                                         €{rooms.precio}<span>/night</span>
                                     </Row>

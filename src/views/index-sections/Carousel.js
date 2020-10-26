@@ -14,25 +14,25 @@ import {
 
 const items = [
   {
-    src: require("assets/img/Cortes.jpg"),
-    altText: "Habitación Cortes",
-    caption: "Cortes",
+    src: require("assets/img/Gaudí.jpg"),
+    altText: "Habitación Gaudí",
+    caption: "Gaudí",
   },
   {
-    src: require("assets/img/Valiente.jpg"),
-    altText: "Habitación Valiente",
-    caption: "Valiente",
+    src: require("assets/img/Pedralbes.jpg"),
+    altText: "Habitación Pedralbes",
+    caption: "Pedralbes",
   },
   {
-    src: require("assets/img/Duque.jpg"),
-    altText: "Habitación Duque",
-    caption: "Duque",
+    src: require("assets/img/La Rambla.jpg"),
+    altText: "Habitación La Rambla",
+    caption: "La Rambla",
   },
 
   {
-    src: require("assets/img/Hogareña.jpg"),
-    altText: "Habitación Hogareña",
-    caption: "Hogareña",
+    src: require("assets/img/Batlló.jpg"),
+    altText: "Habitación Batlló",
+    caption: "Batlló",
   },
   
 

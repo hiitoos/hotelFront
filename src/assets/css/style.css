@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.listaRoomWithImg{
+    background-color: aliceblue;
+}
+
 
 .listaRoomWithImg .roomInfo .roomName{
     color: lightslategrey;
@@ -19,6 +23,7 @@
 .listaRoomWithImg .roomInfo .roomDescription{
     text-align: justify;
     display: flex;
+    padding: 5%;
 }
 
 .listaRoomWithImg .roomPrice{
