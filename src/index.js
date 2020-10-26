@@ -42,6 +42,7 @@ ReactDOM.render(
         {/* <Route path="/index" render={(props) => <Index {...props} />} /> */}
         <Route path="/index" render={(props) => <Index {...props} />} />
         <Route path="/showAllRooms" render={(props) => <RoomsList {...props} />} />
+        
         {/* <Route path="/index" render={(props) => <RoomsList {...props} />} /> */}
         {/* 
         <Route

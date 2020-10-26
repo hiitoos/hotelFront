@@ -5,6 +5,8 @@ import {
     Row,
     Col
   } from "reactstrap";
+import Button from 'reactstrap/lib/Button';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class RoomList extends Component {
     constructor(props) {
@@ -29,11 +31,22 @@ class RoomList extends Component {
                                 <Col lg={5}>
                                     <img src={require(`../assets/img/${rooms.codigo}.jpg`)} alt="imagen1"/>
                                 </Col>
-                                <Col lg={3} className="align-me roomDescription">
-                                    {rooms.descripcion}
+                                <Col lg={3} className="roomInfo">
+                                    <Row className="roomName">
+                                        {rooms.codigo}
+                                    </Row>
+                                    <Row className="roomDescription">
+                                        {rooms.descripcion}
+                                    </Row>
                                 </Col>
-                                <Col lg={4} className="roomPrice">
-                                    {rooms.precio}€
+                                <Col lg={4} >
+                                    <Row className="roomPrice">
+                                        €{rooms.precio}<span>/night</span>
+                                    </Row>
+                                    <Row className="bookButton">
+                                        {/* <Button onClick={`/showRoomById/${rooms.id}`}>Book now!</Button> */}
+                                        <Button onClick="">Book now!</Button>
+                                    </Row>
                                 </Col>
                             </Row>
                             <br></br>
