@@ -1,0 +1,24 @@
+.navbar.navbar-transparent span{
+    background-color: transparent !important;
+    box-shadow: none;
+    color: black;
+    padding-top: 20px !important; 
+}
+
+.listaRoomWithImg img{
+    width: 100%;
+}
+
+.listaRoomWithImg .roomDescription{
+    text-align: justify;
+    display: flex;
+    align-items: center;
+}
+
+.listaRoomWithImg .roomPrice{
+    display: flex;
+    align-items: center;
+    font-size: 70px;
+    justify-items: right;
+
+}
