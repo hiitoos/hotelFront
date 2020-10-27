@@ -34,6 +34,7 @@ import Header from "components/Headers/IndexHeader.js"
 // import ProfilePage from "views/examples/ProfilePage.js";
 import BookingList from './components/showBooking'
 import RoomsList from './components/showAllRooms'
+import SingleRoom from "views/SingleRoom";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -42,7 +43,7 @@ ReactDOM.render(
         {/* <Route path="/index" render={(props) => <Index {...props} />} /> */}
         <Route path="/index" render={(props) => <Index {...props} />} />
         <Route path="/showAllRooms" render={(props) => <RoomsList {...props} />} />
-        
+        <Route exact path="/showRoomById/:id" render={(props) => <SingleRoom {...props} />} />
         {/* <Route path="/index" render={(props) => <RoomsList {...props} />} /> */}
         {/* 
         <Route

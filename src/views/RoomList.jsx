@@ -6,7 +6,6 @@ import {
     Col
   } from "reactstrap";
 import Button from 'reactstrap/lib/Button';
-import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 class RoomList extends Component {
     constructor(props) {
@@ -14,12 +13,21 @@ class RoomList extends Component {
         this.state = {
             rooms: []
         }
+        this.handleEvent = this.handleEvent.bind(this);
     }
+
     componentDidMount(){
         RoomService.getAllRooms().then((res) => {
             this.setState({ rooms : res.data });
         });
     }
+
+    handleEvent(id){
+        this.props.history.push(`/showRoomById/${id}`);
+    }
+
+    
+
     render(){
         return(
             <div>
@@ -44,8 +52,7 @@ class RoomList extends Component {
                                         €{rooms.precio}<span>/night</span>
                                     </Row>
                                     <Row className="bookButton">
-                                        {/* <Button onClick={`/showRoomById/${rooms.id}`}>Book now!</Button> */}
-                                        <Button onClick="">Book now!</Button>
+                                        <Button onClick={() => this.handleEvent(rooms.id)}>Book now!</Button>
                                     </Row>
                                 </Col>
                             </Row>

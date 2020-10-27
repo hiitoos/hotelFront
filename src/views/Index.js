@@ -25,9 +25,10 @@ import SignUp from "./index-sections/SignUp.js";
 import Examples from "./index-sections/Examples.js";
 import Download from "./index-sections/Download.js";
 
-import RoomList from "../views/RoomList.js"
+import RoomList from "./RoomList.jsx"
+import SingleRoom from "./SingleRoom.jsx"
 
-function Index() {
+function Index(props) {
   React.useEffect(() => {
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
@@ -46,7 +47,8 @@ function Index() {
         {/* <IndexHeader /> */}
         <div className="main">
           <Carousel />
-          <RoomList />
+          <RoomList  {...props}/>
+          {/* <SingleRoom {...props}/> */}
           {/* <BasicElements />
           <Navbars />
           <Tabs />

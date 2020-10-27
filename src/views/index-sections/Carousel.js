@@ -39,7 +39,7 @@ const items = [
 ];
 
 function CarouselSection() {
-  const [activeIndex, setActiveIndex] = React.useState(0);
+    const [activeIndex, setActiveIndex] = React.useState(0);
   const [animating, setAnimating] = React.useState(false);
   const onExiting = () => {
     setAnimating(true);
