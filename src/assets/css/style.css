@@ -28,8 +28,9 @@
 
 .listaRoomWithImg .roomInfo .roomNameFinal{
     color: lightslategrey;
-    justify-content: center;
     font-size: 70px;
+    padding-left: 10%;
+    justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
@@ -37,8 +38,8 @@
     text-align: justify;
     display: flex;
     padding: 8%;
-    font-size: x-large;
-    font-family: 'Courier New', Courier, monospace
+    font-size: xx-large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .listaRoomWithImg .roomPrice{

@@ -24,9 +24,9 @@ import {
     render(){
         return(
             <div>
-                <IndexNavbar /><br/>
+                <IndexNavbar />
                 {
-                        <Container key={this.state.room.id} className="listaRoomWithImg">
+                        <Container key={this.state.room.id} className="listaRoomWithImg"><br/>
                             <Row>
                                 <Col lg={12}>
                                     <img src={require(`../assets/img/${this.state.room.codigo!==undefined ? this.state.room.codigo : "blank"}.jpg`)} alt="imagen1"/>
@@ -35,12 +35,14 @@ import {
                             <Row>
                                 <Col lg={12} className="roomInfo">
                                         <Row>
-                                            <Col lg={3} className="roomNameFinal">
-                                                {this.state.room.codigo}
+                                            <Col lg={3}>
+                                                <Row className="roomNameFinal">{this.state.room.codigo}</Row>
+                                                <hr/>
+                                                <Row className="roomPrice">{this.state.room.precio}€<span>/night</span></Row>
                                             </Col>
                                             <Col lg={9} className="roomDescriptionFinal">
-                                              {this.state.room.descripcion}
-                                              </Col>
+                                                {this.state.room.descripcion}
+                                            </Col>
                                         </Row>
                                 </Col>
                                 </Row>
