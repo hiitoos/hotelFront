@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RoomService from '../services/roomService.js'
-import Carousel from "../views/index-sections/Carousel.js";
+// import Carousel from "../views/index-sections/Carousel.js";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import '../assets/css/now-ui-kit.css'
 
