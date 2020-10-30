@@ -49,7 +49,7 @@ class RoomList extends Component {
                                 </Col>
                                 <Col lg={3} >
                                     <Row className="roomPrice">
-                                        €{rooms.precio}<span className="desde">/night</span>
+                                        €{rooms.precio}<span className="mainnight">/night</span>
                                     </Row>
                                     <Row className="bookButton">
                                         <Button onClick={() => this.handleEvent(rooms.id)}>Book now!</Button>

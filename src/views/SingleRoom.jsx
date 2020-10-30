@@ -33,26 +33,45 @@ class Singleroom extends Component {
                         <Container key={this.state.room.habitacion.id} className="listaRoomWithImg"><br />
                             <Row>
                                 <Col lg={12}>
-                                <img src={require(`../assets/img/${this.state.room.habitacion.codigo!==undefined ? this.state.room.habitacion.codigo : "blank"
-                                    }.jpg`)} alt="imagen1" />
+                                    <img src={require(`../assets/img/${this.state.room.habitacion.codigo!==undefined 
+                                                                            ? this.state.room.habitacion.codigo 
+                                                                            : "blank"
+                                                                    }.jpg`)
+                                            } alt="imagen1" />
                                 </Col><br />
                             </Row>
                             <Row>
                                 <Col lg={12} className="roomInfo">
                                 <Row>
                                     <Col lg={4}>
-                                    <Row className="roomNameFinal">{this.state.room.habitacion.codigo}</Row>
-                                    <hr />
-                                    <Row className="roomPrice"><span className="desde">Desde</span><br/>{this.state.room.habitacion.precio}€<span className="precio">/night</span></Row>
+                                        <Row className="roomNameFinal">
+                                            {this.state.room.habitacion.codigo}
+                                        </Row>
+                                        <hr />
+                                        <Row className="roomPrice">
+                                            <span className="desde">
+                                                Desde
+                                            </span><br/>
+                                            <span className="price">
+                                                {this.state.room.habitacion.precio}€
+                                            </span>
+                                            <span className="night">
+                                                /night
+                                            </span>
+                                        </Row>
                                     </Col>
                                     <Col lg={8} className="roomDescriptionFinal">
-                                    {this.state.room.habitacion.descripcion}
+                                        {this.state.room.habitacion.descripcion}
                                     </Col>
                                 </Row>
                                 </Col>
                             </Row>
                             <br />
-                            <Formulario fechas={this.state.room.fechas} idHab={this.state.room.habitacion.id} />
+                            <Formulario 
+                                fechas={this.state.room.fechas} 
+                                idHab={this.state.room.habitacion.id} 
+                                codHab={this.state.room.habitacion.codigo}
+                            />
                         </Container>
                         : <></>
                     }

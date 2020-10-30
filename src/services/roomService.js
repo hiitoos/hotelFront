@@ -8,7 +8,5 @@ class HabitacionService{
     async getRoom(id){
         return await axios.get( API_BASE_URL + '/showRoomById/'+id);
     }
-
-
 }
 export default new HabitacionService()
