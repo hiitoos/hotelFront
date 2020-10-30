@@ -1,16 +1,22 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect, Fragment }  from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from 'reactstrap/lib/Button';
 import moment from 'moment'
 import BookingService from '../services/bookingService'
+import { useHistory } from "react-router";
 
 function PreFinish(props) {
     const [show, setShow] = useState(false);
+    const [idReserva, setIdReserva] = useState(0);
     const handleClose = () => setShow(false);
+
+    
+    const history = useHistory();
 
     useEffect( ()=>{
         setShow(props.show);
     },[props])
+
 
     let dataOut = 
     {
@@ -21,30 +27,44 @@ function PreFinish(props) {
         "id_cliente": 1
     };
 
+    const reservar = () =>{
+        BookingService.newBooking(dataOut)
+            .then(idReserva => {
+                setIdReserva(idReserva)
+                history.push({
+                    pathname: "/thankyoupage",
+                    state: {
+                        reserva: idReserva
+                    }
+                })
+            })    
+    }
+
     return (
-        <>
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-                <Modal.Title>Final details of <h1>{props.habitacion}</h1></Modal.Title>
-             </Modal.Header> 
-            <Modal.Body>Summary<br/>
-                Check in day: {props.in?props.in:"TODAY"}<br/>
-                Check out day: {props.out?props.out:"TODAY"}<br/>
-                Final price: {props.precio}€<br/>
-            </Modal.Body>
-             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                    Go Back
-                </Button>
-                <Button variant="primary" onClick={() => {handleClose()
-                                                        BookingService.newBooking(dataOut)
-                                                        }
-                }>
-                    Book it!
-                </Button>
-             </Modal.Footer>
-        </Modal>
-        </>
+        <Fragment>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Final details of <h1>{props.habitacion}</h1></Modal.Title>
+                </Modal.Header> 
+                <Modal.Body>Summary<br/>
+                    Check in day: {props.in?props.in:"TODAY"}<br/>
+                    Check out day: {props.out?props.out:"TODAY"}<br/>
+                    Final price: {props.precio}€<br/>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Go Back
+                    </Button>
+                    <Button variant="primary" onClick={() => {
+                                                            handleClose()
+                                                            reservar()
+                                                            }
+                    }>
+                        Book it!
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </Fragment>
     );
 }
 

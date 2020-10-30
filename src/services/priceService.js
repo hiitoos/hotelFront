@@ -3,7 +3,6 @@ const API_BASE_URL = "http://localhost:8080/api";
 class PriceService {
     async getPrice(dataIn) {
         let resp;
-        let data = dataIn;
         let config = {
             method: 'post',
             url: (API_BASE_URL + '/calculaPrecio'),
@@ -11,7 +10,7 @@ class PriceService {
                 'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json',
             },
-            data: data
+            data: dataIn
         };
         await axios(config)
             .then((response) => {

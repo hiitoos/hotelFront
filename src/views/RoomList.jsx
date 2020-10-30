@@ -26,8 +26,6 @@ class RoomList extends Component {
         this.props.history.push(`/showRoomById/${id}`);
     }
 
-    
-
     render(){
         return(
             <div>

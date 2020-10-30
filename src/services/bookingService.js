@@ -5,8 +5,12 @@ class ReservaService{
         return await axios.get( API_BASE_URL + '/showAllBookings');
     }
 
+    async getBookingById(id){
+      return await axios.get( API_BASE_URL + `/showBookingById/${id}`);
+    }
+
     async newBooking(dataIn){
-            let data = dataIn
+            let resp;
             let config = {
               method: 'post',
               url: (API_BASE_URL + '/newBooking'),
@@ -14,16 +18,17 @@ class ReservaService{
                 'Access-Control-Allow-Origin':'*',
                 'Content-Type': 'application/json', 
               },
-              data : data
+              data : dataIn
             };
-            axios(config)
-            .then((response) => {
-                console.log("OK")
-                return response.status
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
+            await axios(config)
+              .then((response) => {
+                  console.log("OK")
+                  resp = response.data
+              })
+              .catch(function (error) {
+                console.log(error);
+              });
+            return resp;
     }
 }
 export default new ReservaService ()
