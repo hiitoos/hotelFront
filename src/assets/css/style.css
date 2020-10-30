@@ -89,3 +89,23 @@
     font-weight: bold lighter;
     justify-content: right;
 }
+.thankyou .idReserva h1 span{
+    font-style: italic;
+    font-weight: bolder;
+}
+
+.thankyou .idReserva{
+    justify-content: center;
+}
+
+.thankyou .fechas{
+    font-style: oblique;
+}
+
+.thankyou .fechas .horario{
+    font-weight: 300;
+    font-size: 8px;
+    position: absolute;
+    top: 0%;
+    left: 17%
+}

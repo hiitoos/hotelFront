@@ -8,6 +8,7 @@ import {
 import Button from 'reactstrap/lib/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
 import PriceService from '../services/priceService'
+
 import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 import "react-datepicker/dist/react-datepicker.css";
