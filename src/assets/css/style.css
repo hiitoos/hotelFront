@@ -89,6 +89,17 @@
     font-weight: bold lighter;
     justify-content: right;
 }
+
+.thankyouFG{
+    background-image: url("../img/skyline_BCN.jpg");
+    height: 50vmax;
+}
+
+.thankyou{
+    background-color: white;
+    opacity: 75%;
+}
+
 .thankyou .idReserva h1 span{
     font-style: italic;
     font-weight: bolder;
@@ -98,8 +109,9 @@
     justify-content: center;
 }
 
-.thankyou .fechas{
+.thankyou .check{
     font-style: oblique;
+    text-decoration: underline;
 }
 
 .thankyou .fechas .horario{

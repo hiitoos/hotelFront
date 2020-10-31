@@ -25,7 +25,8 @@ class ThankYouPage extends Component {
 
     render(){
         return(
-            <Fragment>
+            <div className="thankyouFG">
+                <br/>
                 <Container className="thankyou">
                     <br/>
                     <Row className="idReserva"><h1><span>Booking: </span> #{this.state.booking.id}#</h1><br/></Row>
@@ -38,21 +39,22 @@ class ThankYouPage extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col>Precio Final: <br/><h2>{this.state.booking.precioTotal}€</h2><br/></Col>
+                        <Col><span className="check">Precio Final: </span><br/><h2>{this.state.booking.precioTotal}€</h2><br/></Col>
                     </Row>
                     <Row>
-                        <Col>Habitacion: <br/><h2>{this.state.habitacion.codigo}</h2><br/></Col>
+                        <Col><span className="check">Habitacion:</span> <br/><h2>{this.state.habitacion.codigo}</h2><br/></Col>
                     </Row>
                     <Row>
-                        <Col>Descripcion habitacion: <br/><h2>{this.state.habitacion.descripcion}</h2><br/></Col>
+                        <Col><span className="check">Descripcion habitacion:</span> <br/><h2>{this.state.habitacion.descripcion}</h2><br/></Col>
                     </Row>
                     <Row>
-                        <Col>Precio habitacion: <br/><h2>{this.state.habitacion.precio}€</h2><br/></Col>
+                        <Col><span className="check">Precio habitacion: </span><br/><h2>{this.state.habitacion.precio}€</h2><br/></Col>
                     </Row>
                     <Row>Gracias por confiar en nosotros, esperamos su visita y que disfrute de ella. </Row>
                     <Row>Estamos a su disposición</Row>
+                    <br/>
                 </Container>
-            </Fragment>
+            </div>
         )
     }
 }
