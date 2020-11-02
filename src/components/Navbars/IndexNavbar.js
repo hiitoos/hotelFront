@@ -107,15 +107,15 @@ function IndexNavbar() {
                   onClick={(e) => e.preventDefault()}
                 >
                   <i className="now-ui-icons design_app mr-1"></i>
-                  <span>Rooms</span>
+                  <span>Menu</span>
                 </DropdownToggle>
                 <DropdownMenu>
-                  <DropdownItem to="/showAllRooms" tag={Link}>
+                  <DropdownItem to="/index" tag={Link}>
                     <i className="now-ui-icons business_chart-pie-36 mr-1"></i>
-                   All rooms
+                   HOME
                   </DropdownItem>
                   <DropdownItem
-                    href="https://localhost:3000/showAllRooms"
+                    href="https://localhost:3000/"
                     target="_blank"
                   >
                     <i className="now-ui-icons design_bullet-list-67 mr-1"></i>
