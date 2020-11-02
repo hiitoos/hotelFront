@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import RoomService from '../services/roomService'
+import RoomService from '../services/room.service'
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import {
 Container,
 Row,
 Col
 } from "reactstrap";
-import Formulario from "components/Formulario.jsx"
+import Formulario from "components/FormularioFinal.jsx"
 
 class Singleroom extends Component {
     constructor(props) {

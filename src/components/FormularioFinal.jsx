@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import PreFinish from '../components/PreFinish'
+import PreFinish from './PreFinish'
 import moment from 'moment'
 import {
     Row,
@@ -7,7 +7,7 @@ import {
     } from "reactstrap";
 import Button from 'reactstrap/lib/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import PriceService from '../services/priceService'
+import PriceService from '../services/price.service'
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';

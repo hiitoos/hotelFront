@@ -1,10 +1,10 @@
-import React, { Component, Fragment }  from 'react';
+import React, { Component }  from 'react';
 import {
     Container,
     Row,
     Col
 } from 'reactstrap'
-import BookingService from '../services/bookingService'
+import BookingService from '../services/booking.service'
 import "../assets/css/style.css"
 
 class ThankYouPage extends Component {

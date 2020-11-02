@@ -24,25 +24,10 @@ ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Switch>
-        {/* <Route path="/index" render={(props) => <Index {...props} />} /> */}
         <Route path="/index" render={(props) => <Index {...props} />} />
         <Route path="/showAllRooms" render={(props) => <RoomsList {...props} />} />
         <Route exact path="/showRoomById/:id" render={(props) => <SingleRoom {...props} />} />
         <Route exact path="/thankyoupage" render={(props) => <ThankYouPage {...props} />} />
-        {/* <Route path="/index" render={(props) => <RoomsList {...props} />} /> */}
-        {/* 
-        <Route
-          path="/landing-page"
-          render={(props) => <LandingPage {...props} />}
-        />
-        <Route
-          path="/profile-page"
-          render={(props) => <ProfilePage {...props} />}
-        />
-        <Route
-          path="/login-page"
-          render={(props) => <LoginPage {...props} />}
-        /> */}
         <Redirect to="/index" />
         <Redirect from="/" to="/index" />
       </Switch>

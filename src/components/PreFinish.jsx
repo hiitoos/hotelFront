@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment }  from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from 'reactstrap/lib/Button';
 import moment from 'moment'
-import BookingService from '../services/bookingService'
+import BookingService from '../services/booking.service'
 import { useHistory } from "react-router";
 
 function PreFinish(props) {
@@ -22,7 +22,7 @@ function PreFinish(props) {
     {
         "checkIn": moment(props.in).format("YYYY-MM-DD"), 
         "checkOut": moment(props.out).format("YYYY-MM-DD"),
-        "precioHab": props.precio,
+        "precioHab": props.precio.toFixed(2),
         "habId": props.idHab,
         "id_cliente": 1
     };
@@ -49,7 +49,7 @@ function PreFinish(props) {
                 <Modal.Body>Summary<br/>
                     Check in day: {props.in?props.in:"TODAY"}<br/>
                     Check out day: {props.out?props.out:"TODAY"}<br/>
-                    Final price: {props.precio}€<br/>
+                    Final price: {props.precio.toFixed(2)}€<br/>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleClose}>
