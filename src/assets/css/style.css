@@ -5,6 +5,20 @@
     padding-top: 20px !important; 
 }
 
+.navbar.navbar-notransparent{
+    background-image: url("../img/banner.jpg");
+}
+
+.navbar.navbar-notransparent span{
+    color:black;
+    font-weight: bold;
+}
+
+.navbar.navbar-notransparent span:hover{
+    background-color: white;
+    font-size: large;
+}
+
 .listaRoomWithImg img{
     width: 100%;
 }
@@ -89,6 +103,12 @@
     font-weight: bold lighter;
     justify-content: right;
 }
+
+#carousel{
+    background-image: url("../img/rainbow_skyline.jpg");
+    margin-top: -70px;
+}
+
 
 .thankyouFG{
     background-image: url("../img/skyline_BCN.jpg");

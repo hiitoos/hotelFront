@@ -44,9 +44,8 @@ function Index(props) {
     <>
       <IndexNavbar />
       <div className="wrapper">
-        {/* <IndexHeader /> */}
         <div className="main">
-          <Carousel />
+          <Carousel /><br/>
           <RoomList  {...props}/>
           {/* <SingleRoom {...props}/> */}
           {/* <BasicElements />

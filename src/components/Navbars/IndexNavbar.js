@@ -27,7 +27,7 @@ function IndexNavbar() {
         document.documentElement.scrollTop > 30 ||
         document.body.scrollTop > 30
       ) {
-        setNavbarColor("");
+        setNavbarColor("navbar-notransparent");
       } else if (
         document.documentElement.scrollTop < 400 ||
         document.body.scrollTop < 400
