@@ -112,6 +112,7 @@
 
 .thankyouFG{
     background-image: url("../img/rainbow_skyline.jpg");
+    background-size: 60%;
 }
 
 .thankyou{
@@ -156,4 +157,12 @@
 
 .buttonRL{
     background-color: rgb(151, 114, 65);
+}
+
+.search {
+    position: fixed;
+    z-index: 1050;
+    top: 80%;
+    display: block;
+    overflow: visible;
 }

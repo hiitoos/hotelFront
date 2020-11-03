@@ -19,10 +19,16 @@ class ThankYouPage extends Component {
     }
 
     componentDidMount(){
-        BookingService.getBookingById(this.props.location.state.reserva).then((res) => {
-            this.setState({ booking : res.data });
-            this.setState({ habitacion : res.data.habitacion});
-        });
+        this.props.location.state!==undefined
+            ?   BookingService.getBookingById(this.props.location.state.reserva).then((res) => {
+                    this.setState({ booking : res.data });
+                    this.setState({ habitacion : res.data.habitacion});
+                })
+            :   this.setState({
+                    booking: [],
+                    habitacion: [],
+                })
+
     }
 
     render(){
@@ -52,12 +58,10 @@ class ThankYouPage extends Component {
                     <Row>
                         <Col><span className="check">Precio habitacion: </span><br/><h2>{this.state.habitacion.precio}€</h2><br/></Col>
                     </Row>
-                    <br/>
+                    <Row className="tyMsg">Gracias por confiar en nosotros, esperamos su visita y que disfrute de ella. </Row>
+                    <Row className="tyMsg">Estamos a su disposición</Row>
+                    <Row><Button className="tyBtn" onClick={() => this.props.history.push("/")}>Home</Button></Row>
                 </Container>
-                <Row className="tyMsg">Gracias por confiar en nosotros, esperamos su visita y que disfrute de ella. </Row>
-                <Row className="tyMsg">Estamos a su disposición</Row>
-                <Button className="tyBtn" onClick={() => this.props.history.push("/")}>Home</Button>
-
             </div>
         )
     }

@@ -34,7 +34,7 @@ function Formulario (props){
 
     const onChangeIn = date => {
         setStartDate(date);
-        setEndDate(date);
+        endDate<=startDate?setEndDate(date):setEndDate(endDate);
         if(modal) setModal(!modal)
     };
     const onChangeOut = date => {

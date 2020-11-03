@@ -58,8 +58,6 @@ function Search(props) {
                     onChange={handleChange} />
                 <input type='number' placeholder='price to' name='price_to' value={filter.price_to}
                     onChange={handleChange} />
-                <input type='number' placeholder='guest_from' name='guest_from' value={filter.guest_from}
-                    onChange={handleChange} />
                 <input type='text' placeholder='type' name='type' value={filter.type} onChange={handleChange} />
                 <DatePicker 
                     name='date_from' 

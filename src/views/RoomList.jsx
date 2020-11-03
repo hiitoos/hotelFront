@@ -113,7 +113,7 @@ class RoomList extends Component {
                     </div>
                 </Col>
                 <Col lg={3}>
-                    <Formulario onFilterChange={this.onFilterChange}/>
+                    <Formulario className="formPrincipal" onFilterChange={this.onFilterChange}/>
                 </Col>
             </Row>
         )
