@@ -19,12 +19,12 @@
     font-size: large;
 }
 
-.listRooms{
+/* .listRooms{
     background-image: url("../img/opening.jpg");
     height: 100%;
     width: 100%;
     background-repeat: round;
-}
+} */
 
 .listaRoomWithImg img{
     width: 100%;
@@ -113,8 +113,10 @@
 }
 
 #carousel{
-    background-image: url("../img/rainbow_skyline.jpg");
+    /* background-image: url("../img/rainbow_skyline.jpg"); */
+    background-image: url("../img/skyline_BCN.jpg");
     margin-top: -70px;
+    background-repeat: round;
 }
 
 

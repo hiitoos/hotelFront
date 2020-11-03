@@ -7,7 +7,7 @@ import { useHistory } from "react-router";
 
 function PreFinish(props) {
     const [show, setShow] = useState(false);
-    const [idReserva, setIdReserva] = useState(0);
+    const [setIdReserva] = useState(0);
     const handleClose = () => setShow(false);
 
     

@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { isDateBetween } from '../services/date.service';
+import React, { useState } from 'react';
 
 const initialFilter = {
     price_from: '',
@@ -8,56 +7,23 @@ const initialFilter = {
     guest_from: '',
     date_from: '',
     date_to: '',
-};
+}
 
 function Search(props) {
-    const [rooms, setRooms] = useState([]);
 
     const [filter, setFilter] = useState(initialFilter);
     console.log(props);
-
-    useEffect(() => {
-        setRooms(props);
-    }, []);
 
     function handleChange(event) {
         setFilter({
             ...filter,
             [event.target.name]: event.target.value,
         });
+        props.onFilterChange({
+            ...filter,
+            [event.target.name]: event.target.value,
+        })
     }
-
-    function resetFilter() {
-        setFilter(initialFilter);
-    }
-
-    const roomsFiltered = rooms === undefined ? rooms.filter((room) => {
-        let validPricePerNightFrom = filter.price_from ?
-            room.price_per_night >= +filter.price_from :
-            true;
-        let validPricePerNightTo = filter.price_to ?
-            room.price_per_night <= +filter.price_to :
-            true;
-        let validGuest = filter.guest_from ?
-            room.guest >= +filter.guest_from :
-            true;
-        //  let validType = filter.type ? room.type === filter.type : true;
-        let validType = room.type.includes(filter.type);
-
-        let validDate = !room.booked.some(
-            (date) =>
-            isDateBetween(date, filter.date_from, filter.date_to),
-        );
-
-        return (
-            validPricePerNightFrom &&
-            validPricePerNightTo &&
-            validGuest &&
-            validType &&
-            validDate
-        );
-        
-    }) : [];
 
     return (
         <div className='search'>
@@ -72,22 +38,6 @@ function Search(props) {
                 <input type='date' placeholder='date_from' name='date_from' value={filter.date_from}
                     onChange={handleChange} />
                 <input type='date' placeholder='date_to' name='date_to' value={filter.date_to} onChange={handleChange} />
-                <button onClick={resetFilter}>reset</button>
-            </div>
-            <div className='rooms'>
-                {roomsFiltered.map((room) => (
-                <div className='room' key={room.id}>
-                    <div className='id'>{room.id}</div>
-                    <div className='price'>{room.price_per_night}</div>
-                    <div className='type'>{room.type}</div>
-                    <div className='guest'>{room.guest}</div>
-                    <div className='booked'>
-                        {room.booked.map((date) => (
-                        <div key={date}>{date}</div>
-                        ))}
-                    </div>
-                </div>
-                ))}
             </div>
         </div>
   );

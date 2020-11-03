@@ -7,19 +7,32 @@ import {
   } from "reactstrap";
 import Button from 'reactstrap/lib/Button';
 import Formulario from '../components/FormularioPrincipal.jsx'
+import { isDateBetween } from '../services/date.service';
+
 
 class RoomList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            rooms: []
+            rooms: [],
+            filter: {
+                price_from: '',
+                price_to: '',
+                type: '',
+                guest_from: '',
+                date_from: '',
+                date_to: '',
+            },
         }
         this.handleEvent = this.handleEvent.bind(this);
+        this.onFilterChange = this.onFilterChange.bind(this);
     }
 
     componentDidMount(){
         RoomService.getAllRooms().then((res) => {
             this.setState({ rooms : res.data });
+            console.log(res.data);
+
         });
     }
 
@@ -27,13 +40,51 @@ class RoomList extends Component {
         this.props.history.push(`/showRoomById/${id}`);
     }
 
+    // filteredRooms(){
+    //     this.state.rooms.map(room =>{
+    //         this.setRoomsFiltered(room);
+    //     })
+    // }
+
+    onFilterChange(data){
+        this.setState({filter: data});
+    }
+
     render(){
+        const roomsFiltered = this.state.rooms.filter((room) => {
+            let validPricePerNightFrom = this.state.filter.price_from ?
+                room.precio >= +this.state.filter.price_from :
+                true;
+            let validPricePerNightTo = this.state.filter.price_to ?
+                room.precio <= +this.state.filter.price_to :
+                true;
+            let validGuest = this.state.filter.guest_from ?
+                room.numpersona >= +this.state.filter.guest_from :
+                true;
+            let validType = room.tipoModel.nombre.includes(this.state.filter.type);
+
+            let validDate = !room.fechasOcupadas.some(
+                (date) =>
+                isDateBetween(date, this.state.filter.date_from, this.state.filter.date_to),
+            );
+
+            return (
+                validPricePerNightFrom &&
+                validPricePerNightTo &&
+                validGuest &&
+                validType &&
+                validDate
+            );
+
+        });
+
         return(
             <Row className="listRooms">
                 <Col lg={9}>
                     <div>
                         {
-                            this.state.rooms.map(
+                            //this.state.rooms.map(
+                            roomsFiltered.map(
                                 rooms => 
                                 <Container key={rooms.id} className="listaRoomWithImg">
                                     <Row>
@@ -65,7 +116,7 @@ class RoomList extends Component {
                     </div>
                 </Col>
                 <Col lg={3}>
-                    <Formulario rooms={this.state.rooms}/>
+                    <Formulario onFilterChange={this.onFilterChange}/>
                 </Col>
             </Row>
         )
