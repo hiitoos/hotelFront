@@ -20,8 +20,8 @@ class RoomList extends Component {
                 price_to: '',
                 type: '',
                 guest_from: '',
-                date_from: '',
-                date_to: '',
+                date_from: new Date(),
+                date_to: new Date(),
             },
         }
         this.handleEvent = this.handleEvent.bind(this);

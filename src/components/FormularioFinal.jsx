@@ -32,14 +32,16 @@ function Formulario (props){
         excludedDates[i] = new Date(props.fechas[i]);
     }
 
-    const onChange = dates => {
-        const [start, end] = dates;
-        setStartDate(start);
-        setEndDate(end);
+    const onChangeIn = date => {
+        setStartDate(date);
+        setEndDate(date);
+        if(modal) setModal(!modal)
+    };
+    const onChangeOut = date => {
+        setEndDate(date);
         if(modal) setModal(!modal)
     };
       
-
     // SUBIR AL PADRE!
     const calcPrecio = () => {
          PriceService.getPrice(dataOut).then(data => {setPrecioTotal(data)})
@@ -61,18 +63,27 @@ function Formulario (props){
             {console.log('Formulario final', props)}
             <Row>
                 <Col lg={4}>
+                    <DatePicker
+                            selected = {startDate || new Date(props.fechaIn)}
+                            endDate={endDate}
+                            onChange={onChangeIn}
+                            minDate={new Date()}
+                            excludeDates={excludedDates}
+                            dateFormat="dd/MM/yyyy"
+                            locale="es"
+                            inline
+                    />
                 </Col>
                 <Col lg={4}>
                     <DatePicker
-                            selected = {new Date(props.fechaIn)}
-                            startDate = {startDate}
+                            selected = {endDate}
                             endDate={endDate}
-                            onChange={onChange}
-                            minDate={new Date()}
+                            onChange={onChangeOut}
+                            minDate={startDate}
                             excludeDates={excludedDates}
+                            dateFormat="dd/MM/yyyy"
                             locale="es"
-                            selectsRange
-
+                            inline
                     />
                 </Col>
                 <Col lg={4}>
