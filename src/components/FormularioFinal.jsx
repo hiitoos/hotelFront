@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from "react";
-import PreFinish from './PreFinish'
+import PreFinish from './ModalBooking'
 import moment from 'moment'
 import {
     Row,

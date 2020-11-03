@@ -2,42 +2,32 @@
     background-color: transparent !important;
     box-shadow: none;
     color: black;
-    padding-top: 20px !important; 
+    padding-bottom: 20px !important; 
 }
 
 .navbar.navbar-notransparent{
-    background-image: url("../img/banner.jpg");
+    /* background-image: url("../img/banner.jpg"); */
+    background-color :rgb(151, 114, 65);
+    opacity: 80%;
 }
 
 .navbar.navbar-notransparent span{
-    color:black;
+    color:white;
     font-weight: bold;
 }
-
-.navbar.navbar-notransparent span:hover{
-    background-color: white;
-    font-size: large;
-}
-
-/* .listRooms{
-    background-image: url("../img/opening.jpg");
-    height: 100%;
-    width: 100%;
-    background-repeat: round;
-} */
 
 .listaRoomWithImg img{
     width: 100%;
 }
 
 .listaRoomWithImg{
-    background-color: aliceblue;
+    background-color: rgba(207, 166, 112, 0.514);
     margin-top: 0.9em;
 }
 
 
 .listaRoomWithImg .roomInfo .roomName{
-    color: lightslategrey;
+    color: rgb(151, 114, 65);
     justify-content: center;
     font-size: 50px;
 }
@@ -49,9 +39,10 @@
 }
 
 .listaRoomWithImg .roomInfo .roomNameFinal{
-    color: lightslategrey;
+    color: rgb(151, 114, 65);
     font-size: 70px;
     padding-left: 10%;
+    padding-top: 5%;
     justify-content: center;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
@@ -70,10 +61,10 @@
     font-size: 50px;
     justify-content: center;
     font-weight: bolder;
+    color: white;
 }
 
 .listaRoomWithImg .roomPrice .night{
-    /* align-items: ; */
     position: absolute;
     bottom: 21%;
     right: 19%;
@@ -113,21 +104,20 @@
 }
 
 #carousel{
-    /* background-image: url("../img/rainbow_skyline.jpg"); */
     background-image: url("../img/skyline_BCN.jpg");
-    margin-top: -70px;
+    margin-top: -40px;
     background-repeat: round;
 }
 
 
 .thankyouFG{
-    background-image: url("../img/skyline_BCN.jpg");
-    height: 50vmax;
+    background-image: url("../img/rainbow_skyline.jpg");
 }
 
 .thankyou{
     background-color: white;
     opacity: 75%;
+    margin-bottom: 100px;
 }
 
 .thankyou .idReserva h1 span{
@@ -150,4 +140,20 @@
     position: absolute;
     top: 0%;
     left: 17%
+}
+
+.tyMsg{
+    justify-content: center;
+    font-size: large;
+    font-weight: bolder;
+    ;
+}
+
+.tyBtn{
+    position:absolute;
+    right:50%;
+}
+
+.buttonRL{
+    background-color: rgb(151, 114, 65);
 }

@@ -6,6 +6,8 @@ import {
 } from 'reactstrap'
 import BookingService from '../services/booking.service'
 import "../assets/css/style.css"
+import Button from 'reactstrap/lib/Button';
+
 
 class ThankYouPage extends Component {
     constructor(props) {
@@ -50,10 +52,12 @@ class ThankYouPage extends Component {
                     <Row>
                         <Col><span className="check">Precio habitacion: </span><br/><h2>{this.state.habitacion.precio}€</h2><br/></Col>
                     </Row>
-                    <Row>Gracias por confiar en nosotros, esperamos su visita y que disfrute de ella. </Row>
-                    <Row>Estamos a su disposición</Row>
                     <br/>
                 </Container>
+                <Row className="tyMsg">Gracias por confiar en nosotros, esperamos su visita y que disfrute de ella. </Row>
+                <Row className="tyMsg">Estamos a su disposición</Row>
+                <Button className="tyBtn" onClick={() => this.props.history.push("/")}>Home</Button>
+
             </div>
         )
     }
