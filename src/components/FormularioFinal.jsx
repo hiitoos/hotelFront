@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import PreFinish from './ModalBooking'
 import moment from 'moment'
 import {
@@ -23,6 +23,11 @@ function Formulario (props){
     const [precioTotal, setPrecioTotal] = useState(0);
     const [modal, setModal] = useState(false);
 
+    useEffect( ()=>{
+        setStartDate(props.fechaIn);
+        setEndDate(props.fechaOut);
+    },[props])
+
     for (let i=0; i<props.fechas.length; i++){
         excludedDates[i] = new Date(props.fechas[i]);
     }
@@ -34,6 +39,8 @@ function Formulario (props){
         if(modal) setModal(!modal)
     };
       
+
+    // SUBIR AL PADRE!
     const calcPrecio = () => {
          PriceService.getPrice(dataOut).then(data => {setPrecioTotal(data)})
     }
@@ -51,11 +58,13 @@ function Formulario (props){
       
     return(
         <Fragment>
+            {console.log('Formulario final', props)}
             <Row>
                 <Col lg={4}>
                 </Col>
                 <Col lg={4}>
                     <DatePicker
+                            selected = {new Date(props.fechaIn)}
                             startDate = {startDate}
                             endDate={endDate}
                             onChange={onChange}
@@ -63,7 +72,7 @@ function Formulario (props){
                             excludeDates={excludedDates}
                             locale="es"
                             selectsRange
-                            inline
+
                     />
                 </Col>
                 <Col lg={4}>

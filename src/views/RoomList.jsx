@@ -35,7 +35,13 @@ class RoomList extends Component {
     }
 
     handleEvent(id){
-        this.props.history.push(`/showRoomById/${id}`);
+        this.props.history.push({
+            pathname: `/showRoomById/${id}`,
+            state: {
+                dateIn: this.state.filter.date_from,
+                dateOut: this.state.filter.date_to,
+            }
+        })
     }
 
     onFilterChange(data){
@@ -75,7 +81,6 @@ class RoomList extends Component {
                 <Col lg={9}>
                     <div>
                         {
-                            //this.state.rooms.map(
                             roomsFiltered.map(
                                 rooms => 
                                 <Container key={rooms.id} className="listaRoomWithImg">

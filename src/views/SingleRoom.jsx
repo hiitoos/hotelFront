@@ -15,7 +15,6 @@ class Singleroom extends Component {
         this.state = {
             room: {},
         }
-        console.log(this.props);
     }
 
     componentDidMount() {
@@ -38,17 +37,17 @@ class Singleroom extends Component {
             })
     }
 
-    render() {      
+    render() {
             return (
                 <div>
                     <IndexNavbar />
                     {
-                        this.state.room.habitacion ? 
+                        this.state.room.habitacion ?
                         <Container key={this.state.room.habitacion.id} className="listaRoomWithImg"><br />
                             <Row>
                                 <Col lg={12}>
-                                    <img src={require(`../assets/img/${this.state.room.habitacion.codigo!==undefined 
-                                                                            ? this.state.room.habitacion.codigo 
+                                    <img src={require(`../assets/img/${this.state.room.habitacion.codigo!==undefined
+                                                                            ? this.state.room.habitacion.codigo
                                                                             : "blank"
                                                                     }.jpg`)
                                             } alt="imagen1" />
@@ -81,9 +80,11 @@ class Singleroom extends Component {
                                 </Col>
                             </Row>
                             <br />
-                            <Formulario 
-                                fechas={this.state.room.fechas} 
-                                idHab={this.state.room.habitacion.id} 
+                            <Formulario
+                                fechaIn={this.props.location.state.dateIn!==undefined ? this.props.location.state.dateIn : new Date()}
+                                fechaOut={this.props.location.state.dateOut!==undefined ? this.props.location.state.dateOut : new Date()}
+                                fechas={this.state.room.fechas}
+                                idHab={this.state.room.habitacion.id}
                                 codHab={this.state.room.habitacion.codigo}
                                 onConfirm={this.doPost.bind(this)}
                             />
@@ -92,7 +93,7 @@ class Singleroom extends Component {
                     }
                     <br />
                 </div>
-            ) 
+            )
     }
 
 }
