@@ -81,8 +81,8 @@ class Singleroom extends Component {
                             </Row>
                             <br />
                             <Formulario
-                                fechaIn={this.props.location.state.dateIn!==undefined ? this.props.location.state.dateIn : new Date()}
-                                fechaOut={this.props.location.state.dateOut!==undefined ? this.props.location.state.dateOut : new Date()}
+                                fechaIn={this.props.location.state!==undefined ? this.props.location.state.dateIn : new Date()}
+                                fechaOut={this.props.location.state!==undefined ? this.props.location.state.dateOut : new Date()}
                                 fechas={this.state.room.fechas}
                                 idHab={this.state.room.habitacion.id}
                                 codHab={this.state.room.habitacion.codigo}
