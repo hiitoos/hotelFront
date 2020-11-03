@@ -38,6 +38,10 @@ function Formulario (props){
          PriceService.getPrice(dataOut).then(data => {setPrecioTotal(data)})
     }
 
+    function confirm (propsHijo) {
+        props.onConfirm(propsHijo);
+    };
+
     let dataOut =
     {
         "id":props.idHab, 
@@ -49,7 +53,6 @@ function Formulario (props){
         <Fragment>
             <Row>
                 <Col lg={4}>
-                     {/* {precioTotal}  */}
                 </Col>
                 <Col lg={4}>
                     <DatePicker
@@ -75,6 +78,7 @@ function Formulario (props){
                         precio={precioTotal} 
                         in={moment(startDate).format('LL').toString()} 
                         out={moment(endDate).format('LL').toString()} 
+                        onConfirm={confirm}
                     />
                 </Col>
             </Row>

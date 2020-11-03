@@ -1,10 +1,11 @@
 import React, {Component} from 'react'
 import RoomService from '../services/room.service'
+import BookingService from '../services/booking.service'
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import {
-Container,
-Row,
-Col
+    Container,
+    Row,
+    Col
 } from "reactstrap";
 import Formulario from "components/FormularioFinal.jsx"
 
@@ -14,6 +15,7 @@ class Singleroom extends Component {
         this.state = {
             room: {},
         }
+        console.log(this.props);
     }
 
     componentDidMount() {
@@ -22,6 +24,18 @@ class Singleroom extends Component {
                 room: res.data
             });
         });
+    }
+
+    doPost(data){
+        BookingService.newBooking(data)
+            .then(idReserva => {
+                this.props.history.push({
+                    pathname: "/thankyoupage",
+                    state: {
+                        reserva: idReserva
+                    }
+                })
+            })
     }
 
     render() {      
@@ -71,6 +85,7 @@ class Singleroom extends Component {
                                 fechas={this.state.room.fechas} 
                                 idHab={this.state.room.habitacion.id} 
                                 codHab={this.state.room.habitacion.codigo}
+                                onConfirm={this.doPost.bind(this)}
                             />
                         </Container>
                         : <></>

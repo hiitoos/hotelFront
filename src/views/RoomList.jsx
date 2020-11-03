@@ -31,20 +31,12 @@ class RoomList extends Component {
     componentDidMount(){
         RoomService.getAllRooms().then((res) => {
             this.setState({ rooms : res.data });
-            console.log(res.data);
-
         });
     }
 
     handleEvent(id){
         this.props.history.push(`/showRoomById/${id}`);
     }
-
-    // filteredRooms(){
-    //     this.state.rooms.map(room =>{
-    //         this.setRoomsFiltered(room);
-    //     })
-    // }
 
     onFilterChange(data){
         this.setState({filter: data});

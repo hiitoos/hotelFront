@@ -2,16 +2,10 @@ import React, { useState, useEffect, Fragment }  from 'react';
 import Modal from "react-bootstrap/Modal";
 import Button from 'reactstrap/lib/Button';
 import moment from 'moment'
-import BookingService from '../services/booking.service'
-import { useHistory } from "react-router";
 
 function PreFinish(props) {
     const [show, setShow] = useState(false);
-    const [setIdReserva] = useState(0);
     const handleClose = () => setShow(false);
-
-    
-    const history = useHistory();
 
     useEffect( ()=>{
         setShow(props.show);
@@ -28,21 +22,12 @@ function PreFinish(props) {
     };
 
     const reservar = () =>{
-        BookingService.newBooking(dataOut)
-            .then(idReserva => {
-                setIdReserva(idReserva)
-                history.push({
-                    pathname: "/thankyoupage",
-                    state: {
-                        reserva: idReserva
-                    }
-                })
-            })    
+        props.onConfirm(dataOut); 
     }
 
     return (
         <Fragment>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>Final details of <h1>{props.habitacion}</h1></Modal.Title>
                 </Modal.Header> 
