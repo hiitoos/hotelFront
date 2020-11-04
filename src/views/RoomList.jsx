@@ -6,8 +6,9 @@ import {
     Col
   } from "reactstrap";
 import Button from 'reactstrap/lib/Button';
-import Formulario from '../components/FormularioPrincipal.jsx'
+import Formulario from '../components/Searchs/MainSearch/FormularioPrincipal.jsx'
 import { isDateBetween } from '../services/date.service';
+import { now } from '../services/date.service'
 
 
 class RoomList extends Component {
@@ -19,8 +20,8 @@ class RoomList extends Component {
                 price_from: '',
                 price_to: '',
                 type: '',
-                date_from: new Date(),
-                date_to: new Date(),
+                date_from: now,
+                date_to: now,   
             },
         }
         this.handleEvent = this.handleEvent.bind(this);

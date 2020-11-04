@@ -7,6 +7,7 @@ import {
 import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 import "react-datepicker/dist/react-datepicker.css";
+import { now } from '../../../services/date.service';
 registerLocale('es', es);
 
 const initialFilter = {
@@ -14,8 +15,8 @@ const initialFilter = {
     price_to: '',
     type: '',
     guest_from: '',
-    date_from: new Date(),
-    date_to: new Date(),
+    date_from: now,
+    date_to: now,
 }
 
 function Search(props) {

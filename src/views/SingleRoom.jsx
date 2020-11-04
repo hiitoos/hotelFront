@@ -7,7 +7,7 @@ import {
     Row,
     Col
 } from "reactstrap";
-import Formulario from "components/FormularioFinal.jsx"
+import Formulario from "components/Searchs/DetailSearch/FormularioFinal.jsx"
 
 class Singleroom extends Component {
     constructor(props) {
