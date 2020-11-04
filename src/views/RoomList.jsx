@@ -19,7 +19,6 @@ class RoomList extends Component {
                 price_from: '',
                 price_to: '',
                 type: '',
-                guest_from: '',
                 date_from: new Date(),
                 date_to: new Date(),
             },

@@ -54,8 +54,9 @@ function Search(props) {
     return (
         <div className='search'>
             <div className='filter'>
+                <label name='price_to'>Hola<br/>
                 <input type='number' placeholder='price from' name='price_from' value={filter.price_from}
-                    onChange={handleChange} />
+                    onChange={handleChange} /></label>
                 <input type='number' placeholder='price to' name='price_to' value={filter.price_to}
                     onChange={handleChange} />
                 <input type='text' placeholder='type' name='type' value={filter.type} onChange={handleChange} />
