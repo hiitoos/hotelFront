@@ -14,7 +14,6 @@ const initialFilter = {
     price_from: '',
     price_to: '',
     type: '',
-    guest_from: '',
     date_from: now,
     date_to: now,
 }
