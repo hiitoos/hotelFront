@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import {
+    Container,
+    Row,
+    Col
+} from "reactstrap";
 import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 import "react-datepicker/dist/react-datepicker.css";
@@ -16,7 +21,6 @@ const initialFilter = {
 function Search(props) {
 
     const [filter, setFilter] = useState(initialFilter);
-    console.log(props);
 
     function handleChange(event) {
         setFilter({
@@ -53,32 +57,47 @@ function Search(props) {
 
     return (
         <div className='search'>
-            <div className='filter'>
-                <label name='price_to'>Hola<br/>
-                <input type='number' placeholder='price from' name='price_from' value={filter.price_from}
-                    onChange={handleChange} /></label>
-                <input type='number' placeholder='price to' name='price_to' value={filter.price_to}
-                    onChange={handleChange} />
-                <input type='text' placeholder='type' name='type' value={filter.type} onChange={handleChange} />
-                <DatePicker 
-                    name='date_from' 
-                    dateFormat="dd/MM/yyyy"
-                    value={filter.date_from==='' ? new Date() : filter.date_from} 
-                    onChange={handleChangeDateIn} 
-                    selected={filter.date_from}
-                    minDate={new Date()}
-                    locale="es"
-                />
-                <DatePicker 
-                    name='date_to' 
-                    dateFormat="dd/MM/yyyy"
-                    value={filter.date_to} 
-                    onChange={handleChangeDateOut} 
-                    selected={filter.date_to<filter.date_from?filter.date_from:filter.date_to}
-                    minDate={filter.date_from}
-                    locale="es"
-                />
-            </div>
+            <Container className='filter'>
+                <Row>
+                    <Col lg={6}>
+                        <input type='number' placeholder='Desde... ' name='price_from' value={filter.price_from}
+                        onChange={handleChange} />
+                    </Col>
+                    <Col lg={6}>
+                        <input type='number' placeholder='Hasta...' name='price_to' value={filter.price_to}
+                        onChange={handleChange} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col lg={12}>
+                        <input type='text' placeholder='Simple, Doble, Enorme...' name='type' value={filter.type} onChange={handleChange} />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col lg={6}>
+                        <DatePicker 
+                            name='date_from' 
+                            dateFormat="dd/MM/yyyy"
+                            value={filter.date_from==='' ? new Date() : filter.date_from} 
+                            onChange={handleChangeDateIn} 
+                            selected={filter.date_from}
+                            minDate={new Date()}
+                            locale="es"
+                        />
+                    </Col>
+                    <Col lg={6}>
+                        <DatePicker 
+                            name='date_to' 
+                            dateFormat="dd/MM/yyyy"
+                            value={filter.date_to} 
+                            onChange={handleChangeDateOut} 
+                            selected={filter.date_to<filter.date_from?filter.date_from:filter.date_to}
+                            minDate={filter.date_from}
+                            locale="es"
+                        />
+                    </Col>
+                </Row>
+            </Container>
         </div>
   );
 }
