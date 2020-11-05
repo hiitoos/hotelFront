@@ -86,11 +86,13 @@ function Formulario (props){
                     />
                 </Col>
                 <Col lg={4}>
-                    <Button name="bookIt" onClick={() => {setModal(!modal)
-                                            calcPrecio()
-                                            }  
+                    <Button name="bookIt" style={{background:  "rgb(145, 114, 65)"}} className="bookIt" onClick={() => {
+                                                        setModal(!modal)
+                                                        calcPrecio()
+                                                        }  
                     }>Book Now!</Button>
-                    <PreFinish 
+                    <PreFinish
+                        className="modal" 
                         show={modal} 
                         habitacion={props.codHab} 
                         idHab={props.idHab} 

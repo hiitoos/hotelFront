@@ -12,10 +12,8 @@ describe ('FinalSearch unit test', () => {
     test('should have required inputs', () => {
         const fechas = ['2020-11-20', '2020-11-21'];
         const wrapper = shallow (<FormularioFinal fechas={fechas}/>);
-        wrapper.find('button[name="bookIt"]').simulate('click');
-
-        /*expect(wrapper.find('input[name="price_from"]')).toHaveLength(1);
-        expect(wrapper.find('input[name="price_to"]')).toHaveLength(1);
+        expect(wrapper.find('[name="bookIt"]')).toHaveLength(1);
+        /*expect(wrapper.find('input[name="price_to"]')).toHaveLength(1);
         expect(wrapper.find('input[name="type"]')).toHaveLength(1);*/
     })
 
