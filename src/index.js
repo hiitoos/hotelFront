@@ -16,7 +16,6 @@ import Index from "views/Index.js";
 // import LandingPage from "views/examples/LandingPage.js";
 // import ProfilePage from "views/examples/ProfilePage.js";
 // import BookingList from './components/showBooking'
-import RoomsList from './components/showAllRooms'
 import SingleRoom from "views/SingleRoom";
 import ThankYouPage from "views/ThankYouPage";
 
@@ -25,7 +24,6 @@ ReactDOM.render(
     <Switch>
       <Switch>
         <Route path="/index" render={(props) => <Index {...props} />} />
-        <Route path="/showAllRooms" render={(props) => <RoomsList {...props} />} />
         <Route exact path="/showRoomById/:id" render={(props) => <SingleRoom {...props} />} />
         <Route exact path="/thankyoupage" render={(props) => <ThankYouPage {...props} />} />
         <Redirect to="/index" />
