@@ -4,8 +4,8 @@ import {
     Row,
     Col
 } from 'reactstrap'
-import BookingService from '../services/booking.service'
-import "../assets/css/style.css"
+import BookingService from '../../services/booking.service'
+import "../../assets/css/style.css"
 import Button from 'reactstrap/lib/Button';
 
 

@@ -1,5 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
-import PreFinish from '../../ModalBooking'
+import PreFinish from '../../ModalBooking/ModalBooking'
 import moment from 'moment'
 import {
     Row,

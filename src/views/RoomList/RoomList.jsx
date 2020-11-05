@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
-import RoomService from '../services/room.service'
+import RoomService from '../../services/room.service'
 import {
     Container,
     Row,
     Col
   } from "reactstrap";
 import Button from 'reactstrap/lib/Button';
-import Formulario from '../components/Searchs/MainSearch/FormularioPrincipal.jsx'
-import { isDateBetween } from '../services/date.service';
-import { now } from '../services/date.service'
+import Formulario from '../../components/Searchs/MainSearch/FormularioPrincipal.jsx'
+import { isDateBetween } from '../../services/date.service';
+import { now } from '../../services/date.service'
 
 
 class RoomList extends Component {
@@ -86,7 +86,7 @@ class RoomList extends Component {
                                 <Container key={rooms.id} className="listaRoomWithImg">
                                     <Row>
                                         <Col lg={5}><br/>
-                                            <img src={require(`../assets/img/${rooms.codigo}.jpg`)} alt="imagen1"/>
+                                            <img src={require(`../../assets/img/${rooms.codigo}.jpg`)} alt="imagen1"/>
                                         </Col><br/>
                                         <Col lg={4} className="roomInfo">
                                             <Row className="roomName">

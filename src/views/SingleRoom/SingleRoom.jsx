@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import RoomService from '../services/room.service'
-import BookingService from '../services/booking.service'
+import RoomService from '../../services/room.service'
+import BookingService from '../../services/booking.service'
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import {
     Container,
@@ -46,7 +46,7 @@ class Singleroom extends Component {
                         <Container key={this.state.room.habitacion.id} className="listaRoomWithImg"><br />
                             <Row>
                                 <Col lg={12}>
-                                    <img src={require(`../assets/img/${this.state.room.habitacion.codigo!==undefined
+                                    <img src={require(`../../assets/img/${this.state.room.habitacion.codigo!==undefined
                                                                             ? this.state.room.habitacion.codigo
                                                                             : "blank"
                                                                     }.jpg`)
