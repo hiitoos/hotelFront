@@ -1,9 +1,10 @@
 import React from 'react'
 import FormularioPrincipal from './FormularioPrincipal.jsx'
-import {shallow} from 'enzyme'
+import DatePicker from 'react-datepicker'
+import { shallow, mount } from 'enzyme'
 import { now } from '../../../services/date.service'
 
-describe.skip ('MainSearch unit test', () => {
+describe ('MainSearch unit test', () => {
     test('it should render without crashing', () =>{
         const wrapper = shallow (<FormularioPrincipal />);
         expect(wrapper).toMatchSnapshot();
@@ -17,10 +18,10 @@ describe.skip ('MainSearch unit test', () => {
     })
 
     test('should run onChange PRICE FROM with the new State', () => {
-        const updateFilter = jest.fn();
-        const wrapper = shallow (<FormularioPrincipal onFilterChange={updateFilter}/>);
+        const mockUpdateFilter = jest.fn();
+        const wrapper = shallow (<FormularioPrincipal onFilterChange={mockUpdateFilter}/>);
         wrapper.find('input[name="price_from"]').simulate('change', {target:{name:'price_from', value: '100'}});
-        expect (updateFilter).toHaveBeenCalledWith({
+        expect (mockUpdateFilter).toHaveBeenCalledWith({
             price_from: '100',
             price_to: '',
             type: '',
@@ -30,10 +31,10 @@ describe.skip ('MainSearch unit test', () => {
     })
 
     test('should run onChange PRICE TO with the new State', () => {
-        const updateFilter = jest.fn();
-        const wrapper = shallow (<FormularioPrincipal onFilterChange={updateFilter}/>);
+        const mockUpdateFilter = jest.fn();
+        const wrapper = shallow (<FormularioPrincipal onFilterChange={mockUpdateFilter}/>);
         wrapper.find('input[name="price_to"]').simulate('change', {target:{name:'price_to', value: '200'}});
-        expect (updateFilter).toHaveBeenCalledWith({
+        expect (mockUpdateFilter).toHaveBeenCalledWith({
             price_from: '',
             price_to: '200',
             type: '',
@@ -43,10 +44,10 @@ describe.skip ('MainSearch unit test', () => {
     })
 
     test('should run onChange TYPE with the new State', () => {
-        const updateFilter = jest.fn();
-        const wrapper = shallow (<FormularioPrincipal onFilterChange={updateFilter}/>);
+        const mockUpdateFilter = jest.fn();
+        const wrapper = shallow (<FormularioPrincipal onFilterChange={mockUpdateFilter}/>);
         wrapper.find('input[name="type"]').simulate('change', {target:{name:'type', value: 'Simple'}});
-        expect (updateFilter).toHaveBeenCalledWith({
+        expect (mockUpdateFilter).toHaveBeenCalledWith({
             price_from: '',
             price_to: '',
             type: 'Simple',
@@ -55,6 +56,4 @@ describe.skip ('MainSearch unit test', () => {
         })
     })
 
-    test('should ')
-    
 })

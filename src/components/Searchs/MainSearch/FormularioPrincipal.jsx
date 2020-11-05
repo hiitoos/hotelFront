@@ -73,12 +73,13 @@ function Search(props) {
                         <input type='text' placeholder='Simple, Doble, Enorme...' name='type' value={filter.type} onChange={handleChange} />
                     </Col>
                 </Row>
-                <Row>
+                <Row className="datpickers">
                     <Col lg={6}>
-                        <DatePicker 
+                        <DatePicker
+                            className='datepicker_from' 
                             name='date_from' 
                             dateFormat="dd/MM/yyyy"
-                            value={filter.date_from==='' ? now : filter.date_from} 
+                            value={filter.date_to} 
                             onChange={handleChangeDateIn} 
                             selected={filter.date_from}
                             minDate={now}
@@ -87,6 +88,7 @@ function Search(props) {
                     </Col>
                     <Col lg={6}>
                         <DatePicker 
+                            className='datepicker_to' 
                             name='date_to' 
                             dateFormat="dd/MM/yyyy"
                             value={filter.date_to} 
