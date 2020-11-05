@@ -26,11 +26,10 @@ function Formulario (props){
     useEffect( ()=>{
         setStartDate(props.fechaIn);
         setEndDate(props.fechaOut);
+        for (let i=0; i<props.fechas.length; i++){
+            excludedDates[i] = new Date(props.fechas[i]);
+        }
     },[props])
-
-    for (let i=0; i<props.fechas.length; i++){
-        excludedDates[i] = new Date(props.fechas[i]);
-    }
 
     const onChangeIn = date => {
         setStartDate(date);
@@ -87,7 +86,7 @@ function Formulario (props){
                     />
                 </Col>
                 <Col lg={4}>
-                    <Button onClick={() => {setModal(!modal)
+                    <Button name="bookIt" onClick={() => {setModal(!modal)
                                             calcPrecio()
                                             }  
                     }>Book Now!</Button>

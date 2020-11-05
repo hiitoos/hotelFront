@@ -78,10 +78,10 @@ function Search(props) {
                         <DatePicker 
                             name='date_from' 
                             dateFormat="dd/MM/yyyy"
-                            value={filter.date_from==='' ? new Date() : filter.date_from} 
+                            value={filter.date_from==='' ? now : filter.date_from} 
                             onChange={handleChangeDateIn} 
                             selected={filter.date_from}
-                            minDate={new Date()}
+                            minDate={now}
                             locale="es"
                         />
                     </Col>
