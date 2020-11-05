@@ -1,7 +1,7 @@
 import React from 'react'
 import FormularioFinal from './FormularioFinal.jsx'
 import {shallow} from 'enzyme'
-import { now } from '../../../services/date.service'
+
 
 describe ('FinalSearch unit test', () => {
     test.skip('it should render without crashing', () =>{
@@ -9,12 +9,26 @@ describe ('FinalSearch unit test', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    test('should have required inputs', () => {
-        const fechas = ['2020-11-20', '2020-11-21'];
-        const wrapper = shallow (<FormularioFinal fechas={fechas}/>);
+    test.skip('should have required inputs', () => {
+        const wrapper = shallow (<FormularioFinal/>);
         expect(wrapper.find('[name="bookIt"]')).toHaveLength(1);
-        /*expect(wrapper.find('input[name="price_to"]')).toHaveLength(1);
-        expect(wrapper.find('input[name="type"]')).toHaveLength(1);*/
+        expect(wrapper.find('[name="datePicker_in"]')).toHaveLength(1);
+        expect(wrapper.find('[name="datePicker_out"]')).toHaveLength(1);
+        expect(wrapper.find('[name="modal"]')).toHaveLength(1);
+    })
+
+    test('should simulate click on button', () => {
+        // let show = false;
+        // const wrapper = shallow (<FormularioFinal/>);
+        // const button = wrapper.find('[name="bookIt"]');
+        // const mock = jest.fn(() => show = !show);
+        // button.simulate('click', mock());
+        // expect(show).toBeTruthy();
+        const wrapper = shallow (<FormularioFinal/>);
+        const button = wrapper.find('[name="bookIt"]');
+        const mock = jest.fn();
+        button.simulate('click', mock());
+        expect(mock).toHaveBeenCalled();
     })
 
 })

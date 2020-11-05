@@ -59,10 +59,10 @@ function Formulario (props){
       
     return(
         <Fragment>
-            {console.log('Formulario final', props)}
             <Row>
                 <Col lg={4}>
                     <DatePicker
+                            name = "datePicker_in"
                             selected = {startDate || new Date(props.fechaIn)}
                             endDate={endDate}
                             onChange={onChangeIn}
@@ -75,6 +75,7 @@ function Formulario (props){
                 </Col>
                 <Col lg={4}>
                     <DatePicker
+                            name = "datePicker_out"
                             selected = {endDate}
                             endDate={endDate}
                             onChange={onChangeOut}
@@ -92,6 +93,7 @@ function Formulario (props){
                                                         }  
                     }>Book Now!</Button>
                     <PreFinish
+                        name = "modal"
                         className="modal" 
                         show={modal} 
                         habitacion={props.codHab} 
