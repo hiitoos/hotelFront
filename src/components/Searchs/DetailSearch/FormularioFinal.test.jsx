@@ -17,12 +17,14 @@ describe ('FinalSearch unit test', () => {
         expect(wrapper.find('[name="modal"]')).toHaveLength(1);
     })
 
-    test('should simulate click on button', () => {
+    test('should simulate click on button to call a PROP Function and SHOW MODAL', () => {
         const mock = jest.fn();
         const wrapper = shallow (<FormularioFinal calcPrecio={mock}/>);
         const button = wrapper.find('[name="bookIt"]');
         button.simulate('click');
         expect(mock).toHaveBeenCalledTimes(1);
+        expect(wrapper.find('.modal')).toHaveLength(1);
     })
 
 })
+

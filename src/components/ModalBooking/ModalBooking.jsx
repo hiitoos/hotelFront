@@ -26,7 +26,7 @@ function PreFinish(props) {
     }
 
     return (
-        <Fragment>
+        <Fragment className="modal">
             <Modal show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>Final details of <h1>{props.habitacion}</h1></Modal.Title>

@@ -94,7 +94,7 @@ class RoomList extends Component {
                                                 {rooms.codigo}
                                             </Row>
                                             <Row className="roomDescription">
-                                                {rooms.descripcion}
+                                                {rooms.descripcion.substring(0,50)}...
                                             </Row>
                                         </Col>
                                         <Col lg={3} >
