@@ -7,7 +7,6 @@ import {
     } from "reactstrap";
 import Button from 'reactstrap/lib/Button';
 import "bootstrap/dist/css/bootstrap.min.css";
-import PriceService from '../../../services/price.service'
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
@@ -29,6 +28,7 @@ function Formulario (props){
         for (let i=0; i<props.fechas.length; i++){
             excludedDates[i] = new Date(props.fechas[i]);
         }
+        setPrecioTotal(props.precioTotal);
     },[props])
 
     const onChangeIn = date => {
@@ -41,9 +41,8 @@ function Formulario (props){
         if(modal) setModal(!modal)
     };
       
-    // SUBIR AL PADRE!
     const calcPrecio = () => {
-         PriceService.getPrice(dataOut).then(data => {setPrecioTotal(data)})
+         props.calcPrecio(dataOut)
     }
 
     function confirm (propsHijo) {

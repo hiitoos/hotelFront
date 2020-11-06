@@ -31,6 +31,7 @@ class RoomList extends Component {
     componentDidMount(){
         RoomService.getAllRooms().then((res) => {
             this.setState({ rooms : res.data });
+            console.log(res.data);
         });
     }
 

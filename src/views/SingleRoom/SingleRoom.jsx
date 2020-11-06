@@ -7,6 +7,7 @@ import {
     Row,
     Col
 } from "reactstrap";
+import PriceService from '../../services/price.service'
 import Formulario from "components/Searchs/DetailSearch/FormularioFinal.jsx"
 
 class Singleroom extends Component {
@@ -14,6 +15,7 @@ class Singleroom extends Component {
         super(props)
         this.state = {
             room: {},
+            precioTotal: 0,
         }
     }
 
@@ -36,6 +38,13 @@ class Singleroom extends Component {
                 })
             })
     }
+
+    calcPrecio = (dataOut) => {
+        PriceService.getPrice(dataOut).then(data => {
+            this.setState({precioTotal: data})
+            console.log("PRECIOTOTAL",this.state.precioTotal)
+        })
+   }
 
     render() {
             return (
@@ -85,6 +94,8 @@ class Singleroom extends Component {
                                 fechaOut={this.props.location.state!==undefined ? this.props.location.state.dateOut : new Date()}
                                 fechas={this.state.room.fechas}
                                 idHab={this.state.room.habitacion.id}
+                                precioTotal={this.state.precioTotal}
+                                calcPrecio={this.calcPrecio.bind(this)}
                                 codHab={this.state.room.habitacion.codigo}
                                 onConfirm={this.doPost.bind(this)}
                             />

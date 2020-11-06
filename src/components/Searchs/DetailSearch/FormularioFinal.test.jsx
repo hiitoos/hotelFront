@@ -18,17 +18,11 @@ describe ('FinalSearch unit test', () => {
     })
 
     test('should simulate click on button', () => {
-        // let show = false;
-        // const wrapper = shallow (<FormularioFinal/>);
-        // const button = wrapper.find('[name="bookIt"]');
-        // const mock = jest.fn(() => show = !show);
-        // button.simulate('click', mock());
-        // expect(show).toBeTruthy();
-        const wrapper = shallow (<FormularioFinal/>);
-        const button = wrapper.find('[name="bookIt"]');
         const mock = jest.fn();
-        button.simulate('click', mock());
-        expect(mock).toHaveBeenCalled();
+        const wrapper = shallow (<FormularioFinal calcPrecio={mock}/>);
+        const button = wrapper.find('[name="bookIt"]');
+        button.simulate('click');
+        expect(mock).toHaveBeenCalledTimes(1);
     })
 
 })
