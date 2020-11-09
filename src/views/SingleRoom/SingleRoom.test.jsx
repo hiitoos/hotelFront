@@ -7,16 +7,16 @@ import Modal from 'components/ModalBooking/ModalBooking'
 const match = {
     params : {
         codigo: "test2",
-            descripcion: "descripcion test2",
-            fechasOcupadas: ["2020-11-22", "2020-11-23"],
+        descripcion: "descripcion test2",
+        fechasOcupadas: ["2020-11-22", "2020-11-23"],
+        id: 2,
+        numpersonas: 4,
+        precio: 150,
+        tipoModel: {
             id: 2,
-            numpersonas: 4,
-            precio: 150,
-            tipoModel: {
-                id: 2,
-                nombre: "TestDoble",
-                descripcion: "TestDoble"
-            }
+            nombre: "TestDoble",
+            descripcion: "TestDoble"
+        }
     }
 };
 

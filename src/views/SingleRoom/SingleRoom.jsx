@@ -42,7 +42,6 @@ class Singleroom extends Component {
     calcPrecio = (dataOut) => {
         PriceService.getPrice(dataOut).then(data => {
             this.setState({precioTotal: data})
-            console.log("PRECIOTOTAL",this.state.precioTotal)
             return this.state.precioTotal;
         })
    }
