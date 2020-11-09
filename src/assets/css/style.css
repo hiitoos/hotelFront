@@ -170,3 +170,13 @@
 .filter input{
     margin-bottom: 10px;
 }
+
+.bookButton{
+    position: relative;
+    left:12%;
+    top: 35%;
+}
+
+.formularioFinal{
+    margin-bottom: 20px;
+}

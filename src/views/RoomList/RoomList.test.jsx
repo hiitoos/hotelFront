@@ -3,7 +3,7 @@ import {shallow} from 'enzyme'
 import RoomList from './RoomList.jsx'
 import Formulario from 'components/Searchs/MainSearch/FormularioPrincipal'
 
-describe('RoomList unit test', () => {
+describe.skip('RoomList unit test', () => {
     test('should have required items', () => {
         const wrapper = shallow (<RoomList />);
         let clase = wrapper.find('.listRooms');

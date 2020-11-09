@@ -11,6 +11,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 import "react-datepicker/dist/react-datepicker.css";
+import "assets/css/style.css";
 registerLocale('es', es);
 
 
@@ -58,7 +59,25 @@ function Formulario (props){
       
     return(
         <Fragment>
-            <Row>
+            <Row className="formularioFinal" >
+                <Col lg={4} className="bookButton">
+                        <Button name="bookIt" style={{background:  "rgb(145, 114, 65)"}} className="bookIt" onClick={() => {
+                                                            setModal(!modal)
+                                                            calcPrecio()
+                                                            }  
+                        }>Book Now!</Button>
+                        <PreFinish
+                            name = "modal"
+                            className="modal" 
+                            show={modal} 
+                            habitacion={props.codHab} 
+                            idHab={props.idHab} 
+                            precio={precioTotal} 
+                            in={moment(startDate).format('LL').toString()} 
+                            out={moment(endDate).format('LL').toString()} 
+                            onConfirm={confirm}
+                        />
+                </Col>
                 <Col lg={4}>
                     <DatePicker
                             name = "datePicker_in"
@@ -83,24 +102,6 @@ function Formulario (props){
                             dateFormat="dd/MM/yyyy"
                             locale="es"
                             inline
-                    />
-                </Col>
-                <Col lg={4}>
-                    <Button name="bookIt" style={{background:  "rgb(145, 114, 65)"}} className="bookIt" onClick={() => {
-                                                        setModal(!modal)
-                                                        calcPrecio()
-                                                        }  
-                    }>Book Now!</Button>
-                    <PreFinish
-                        name = "modal"
-                        className="modal" 
-                        show={modal} 
-                        habitacion={props.codHab} 
-                        idHab={props.idHab} 
-                        precio={precioTotal} 
-                        in={moment(startDate).format('LL').toString()} 
-                        out={moment(endDate).format('LL').toString()} 
-                        onConfirm={confirm}
                     />
                 </Col>
             </Row>

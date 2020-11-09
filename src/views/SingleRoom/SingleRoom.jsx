@@ -9,7 +9,7 @@ import {
 } from "reactstrap";
 import PriceService from '../../services/price.service'
 import Formulario from "components/Searchs/DetailSearch/FormularioFinal.jsx"
-
+import {now} from 'services/date.service'
 class Singleroom extends Component {
     constructor(props) {
         super(props)
@@ -92,8 +92,8 @@ class Singleroom extends Component {
                             <br />
                             <Formulario
                                 className="formulario"
-                                fechaIn={this.props.location.state!==undefined ? this.props.location.state.dateIn : new Date()}
-                                fechaOut={this.props.location.state!==undefined ? this.props.location.state.dateOut : new Date()}
+                                fechaIn={this.props.location.state!==undefined ? this.props.location.state.dateIn : now}
+                                fechaOut={this.props.location.state!==undefined ? this.props.location.state.dateOut : now}
                                 fechas={this.state.room.fechas}
                                 idHab={this.state.room.habitacion.id}
                                 precioTotal={this.state.precioTotal}
@@ -102,7 +102,18 @@ class Singleroom extends Component {
                                 onConfirm={this.doPost.bind(this)}
                             />
                         </Container>
-                        : <></>
+                        :                            
+                        <Formulario
+                            className="formulario"
+                            fechaIn={now}
+                            fechaOut={now}
+                            fechas={[]}
+                            idHab={0}
+                            precioTotal={0.00}
+                            calcPrecio={this.calcPrecio.bind(this)}
+                            codHab={'No1'}
+                            onConfirm={this.doPost.bind(this)}
+                        />
                     }
                     <br />
                 </div>
