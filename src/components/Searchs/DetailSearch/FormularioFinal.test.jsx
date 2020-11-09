@@ -3,13 +3,13 @@ import FormularioFinal from './FormularioFinal.jsx'
 import {shallow} from 'enzyme'
 
 
-describe ('FinalSearch unit test', () => {
-    test.skip('it should render without crashing', () =>{
+describe.skip ('FinalSearch unit test', () => {
+    test('it should render without crashing', () =>{
         const wrapper = shallow (<FormularioFinal />);
         expect(wrapper).toMatchSnapshot();
     });
 
-    test.skip('should have required inputs', () => {
+    test('should have required inputs', () => {
         const wrapper = shallow (<FormularioFinal/>);
         expect(wrapper.find('[name="bookIt"]')).toHaveLength(1);
         expect(wrapper.find('[name="datePicker_in"]')).toHaveLength(1);

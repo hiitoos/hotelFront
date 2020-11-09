@@ -102,7 +102,7 @@ class RoomList extends Component {
                                                 €{rooms.precio}<span className="mainnight">/night</span>
                                             </Row>
                                             <Row className="bookButton">
-                                                <Button style={{background:  "rgb(145, 114, 65)"}} onClick={() => this.handleEvent(rooms.id)}>Book now!</Button>
+                                                <Button name="bookRoom" style={{background:  "rgb(145, 114, 65)"}} onClick={() => this.handleEvent(rooms.id)}>Book now!</Button>
                                             </Row>
                                         </Col>
                                     </Row>

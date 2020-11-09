@@ -43,12 +43,13 @@ class Singleroom extends Component {
         PriceService.getPrice(dataOut).then(data => {
             this.setState({precioTotal: data})
             console.log("PRECIOTOTAL",this.state.precioTotal)
+            return this.state.precioTotal;
         })
    }
 
     render() {
             return (
-                <div>
+                <div className="singleRoom">
                     <IndexNavbar />
                     {
                         this.state.room.habitacion ?
@@ -90,6 +91,7 @@ class Singleroom extends Component {
                             </Row>
                             <br />
                             <Formulario
+                                className="formulario"
                                 fechaIn={this.props.location.state!==undefined ? this.props.location.state.dateIn : new Date()}
                                 fechaOut={this.props.location.state!==undefined ? this.props.location.state.dateOut : new Date()}
                                 fechas={this.state.room.fechas}

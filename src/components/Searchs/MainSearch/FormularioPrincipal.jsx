@@ -73,7 +73,7 @@ function Search(props) {
                         <input type='text' placeholder='Simple, Doble, Enorme...' name='type' value={filter.type} onChange={handleChange} />
                     </Col>
                 </Row>
-                <Row className="datpickers">
+                <Row className="datepickers">
                     <Col lg={6}>
                         <DatePicker
                             className='datepicker_from' 

@@ -26,8 +26,8 @@ function PreFinish(props) {
     }
 
     return (
-        <Fragment className="modal">
-            <Modal show={show} onHide={handleClose} >
+        <Fragment >
+            <Modal className="modal" show={show} onHide={handleClose} >
                 <Modal.Header closeButton>
                     <Modal.Title>Final details of <h1>{props.habitacion}</h1></Modal.Title>
                 </Modal.Header> 
@@ -40,7 +40,7 @@ function PreFinish(props) {
                     <Button variant="secondary" onClick={handleClose}>
                         Go Back
                     </Button>
-                    <Button variant="primary" onClick={() => {
+                    <Button name="bookNow" variant="primary" onClick={() => {
                                                             handleClose()
                                                             reservar()
                                                             }
