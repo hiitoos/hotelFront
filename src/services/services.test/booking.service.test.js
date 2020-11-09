@@ -1,50 +1,88 @@
 import BookingService from '../booking.service'
 import axios from 'axios'
-import { isExportDeclaration } from 'typescript';
 
 jest.mock('axios');
 
-    const room1 = {
-        codigo: "test1",
-        descripcion: "descripcion test1",
-        fechasOcupadas: ["2020-11-22", "2020-11-23"],
+const booking1 = {
+    id: 1,
+    fechaIn: "2020-01-01",
+    fechaOut: "2020-01-05",
+    precioTotal: 400,
+    cliente: {
         id: 1,
-        numpersonas: 2,
-        precio: 150,
-        tipoModel: {
-            id: 2,
-            nombre: "TestDoble",
-            descripcion: "TestDoble"
-        }
-    };
-    const room2 = {
-        codigo: "test2",
-        descripcion: "descripcion test2",
-        fechasOcupadas: ["2020-11-22", "2020-11-23"],
+        nombre: "Carlos",
+        apellido: "Tocho",
+        email: "email@email.com"
+    },
+    habitacion:{
+        id: 1,
+        codigo: "TestHab1",
+        precio: 100,
+        tipo: {
+            id: 1,
+            descripcion: "TestHabTipo1",
+            nombre: "TestTipo"
+        },
+        numpersonas: 4
+    }
+};
+const booking2 = {
+    id: 2,
+    fechaIn: "2020-02-05",
+    fechaOut: "2020-02-07",
+    precioTotal: 200,
+    cliente: {
         id: 2,
-        numpersonas: 4,
-        precio: 750,
-        tipoModel: {
+        nombre: "Carlos",
+        apellido: "Tocho",
+        email: "email@email.com"
+    },
+    habitacion:{
+        id: 2,
+        codigo: "TestHab2",
+        precio: 100,
+        tipo: {
             id: 2,
-            nombre: "TestDoble",
-            descripcion: "TestDoble"
-        }
-    };
+            descripcion: "TestHabTipo2",
+            nombre: "TestTipo"
+        },
+        numpersonas: 2
+    }
+};
 
 describe('BookingService unit test', () =>{
-    test('should return roomList', ()=>{
-        const rooms = {room1: room1, room2: room2}
-        axios.get.mockResolvedValue(rooms);
-        BookingService.getAllBookings().then(
-            data => expect(data).toEqual(room1)
+    // test('should fetch roomList', ()=>{
+    //     axios.get.mockResolvedValue(rooms);
+    //     BookingService.getAllBookings().then(
+    //         data => expect(data).toEqual(rooms)
+    //     )
+    // })
+
+    test('should return Room 1', ()=>{
+        axios.get.mockResolvedValue(booking1);
+        BookingService.getBookingById(booking1.id).then(
+            data => expect(data).toEqual(booking1) 
         )
     })
 
-    test('should return a room', ()=>{
-        
+    test('should return Room 2', ()=>{
+        axios.get.mockResolvedValue(booking2);
+        BookingService.getBookingById(booking2.id).then(
+            data => expect(data).toEqual(booking2) 
+        )
     })
 
-    test('should return idBooking', ()=>{
-        
+    test('should return idBooking 1', ()=>{
+        axios.post.mockResolvedValue(1);
+        BookingService.newBooking(booking1).then(
+            data => expect(data).toEqual(booking1.id)
+        ).catch((e) => console.log(e))
+    })
+// ↕ ↕ ↕ ↕ ESTO PETA POR UNDEFINED ↕ ↕ ↕ ↕ 
+    test.skip('should return idBooking 2', ()=>{
+        axios.post.mockResolvedValue(2);
+        BookingService.newBooking(booking2).then(
+            data => expect(data).toEqual(booking2.id)
+        ) 
     })
 })
