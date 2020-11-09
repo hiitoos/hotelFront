@@ -8,6 +8,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import es from 'date-fns/locale/es';
 import "react-datepicker/dist/react-datepicker.css";
 import { now } from '../../../services/date.service';
+import moment from 'moment'
 registerLocale('es', es);
 
 const initialFilter = {

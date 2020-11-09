@@ -2,7 +2,8 @@ import React from 'react'
 import {shallow} from 'enzyme'
 import SingleRoom, { calcPrecio } from './SingleRoom.jsx'
 import FormularioFinal from 'components/Searchs/DetailSearch/FormularioFinal'
-import Modal from 'components/ModalBooking/ModalBooking'
+import now from '../../services/date.service'
+import moment from 'moment'
 
 const match = {
     params : {
@@ -27,16 +28,24 @@ describe('SingleRoom unit test', () => {
         expect(wrapper.find('.formulario')).toHaveLength(1)
     })
 
-    test.skip('should spy doPost function and be called', () => {
-        const wrapper = shallow (<SingleRoom match={match}/>)
-        const spy = jest.spyOn(wrapper.instance(), 'doPost')
-        const component = shallow (<FormularioFinal calcPrecio={jest.fn()} onConfirm = {spy}/>)
-        const spyComponent = jest.spyOn(component.instance(), 'confirm')
-        component.find('[name="bookIt"]').simulate('click');
-        const subComponent = shallow (<Modal precio={0.00} onConfirm={spyComponent}/>)
-        subComponent.find('[name="bookNow"]').simulate('click');
-        expect(spy).toBeCalled();
-    })
+    // test('should spy doPost function and be called', () => {
+    //     const mock = jest.fn()
+    //     const component = shallow (
+    //         <FormularioFinal
+    //             fechaIn = {moment(now).format("yyyy-MM-DD")}
+    //             fechaOut = {moment(now).format("yyyy-MM-DD")}
+    //             fechas = {[]}
+    //             idHab = {1}
+    //             precioTotal = {120}
+    //             codHab = "hab1"
+    //             calcPrecio={jest.fn()} 
+    //             onConfirm = {mock}
+    //         />)
+    //     component.find('[name="bookIt"]').simulate('click');
+    //     console.log(component.html())
+    //     // component.find('[name="bookNow"]').simulate('click');
+    //     expect(mock).toBeCalled();
+    // })
 
     test('should spy calcPrecio function and be called', () => {
         const wrapper = shallow (<SingleRoom match={match}/>)

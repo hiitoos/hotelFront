@@ -9,7 +9,7 @@ import Button from 'reactstrap/lib/Button';
 import Formulario from '../../components/Searchs/MainSearch/FormularioPrincipal.jsx'
 import { isDateBetween } from '../../services/date.service';
 import { now } from '../../services/date.service'
-
+import moment from 'moment'
 
 class RoomList extends Component {
     constructor(props) {
@@ -21,7 +21,7 @@ class RoomList extends Component {
                 price_to: '',
                 type: '',
                 date_from: now,
-                date_to: now,   
+                date_to: moment(now).add(1, 'days'),   
             },
         }
         this.handleEvent = this.handleEvent.bind(this);
