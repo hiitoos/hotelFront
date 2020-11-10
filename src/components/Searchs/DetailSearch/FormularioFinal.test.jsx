@@ -35,6 +35,5 @@ describe ('FinalSearch unit test', () => {
         button.simulate('click');
         expect(mock).toHaveBeenCalledTimes(1);
     })
-
 })
 

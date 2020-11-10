@@ -28,16 +28,16 @@ function PreFinish(props) {
     return (
         <Fragment >
             <Modal className="modal" show={show} onHide={handleClose} >
-                <Modal.Header closeButton>
-                    <Modal.Title>Final details of <h1>{props.habitacion}</h1></Modal.Title>
+                <Modal.Header className="modal-header" closeButton>
+                    <Modal.Title className="modal-title">Final details of <h1>{props.habitacion}</h1></Modal.Title>
                 </Modal.Header> 
-                <Modal.Body>Summary<br/>
+                <Modal.Body className="modal-body">Summary<br/>
                     Check in day: {props.in?props.in:"TODAY"}<br/>
                     Check out day: {props.out?props.out:"TODAY"}<br/>
                     Final price: {props.precio.toFixed(2)}€<br/>
                 </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
+                <Modal.Footer className="modal-footer">
+                    <Button name="closeBtn" variant="secondary" onClick={handleClose}>
                         Go Back
                     </Button>
                     <Button name="bookNow" variant="primary" onClick={() => {
