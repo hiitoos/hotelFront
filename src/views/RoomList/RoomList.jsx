@@ -21,7 +21,7 @@ class RoomList extends Component {
                 price_to: '',
                 type: '',
                 date_from: now,
-                date_to: moment(now).add(1, 'days'),   
+                date_to: now,   
             },
         }
         this.handleEvent = this.handleEvent.bind(this);

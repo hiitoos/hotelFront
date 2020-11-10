@@ -80,7 +80,7 @@ function Search(props) {
                             className='datepicker_from' 
                             name='date_from' 
                             dateFormat="dd/MM/yyyy"
-                            value={filter.date_to} 
+                            value={filter.date_from} 
                             onChange={handleChangeDateIn} 
                             selected={filter.date_from}
                             minDate={now}
