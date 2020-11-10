@@ -10,17 +10,6 @@ describe.skip('RoomList unit test', () => {
         expect(clase).toHaveLength(1)
     })
 
-    test.skip('should spy handleEvent function and be called', () => {
-        const wrapper = shallow (<RoomList/>)
-        const spy = jest.spyOn(wrapper.instance(), 'handleEvent')
-        const button = wrapper.find('[name="bookRoom"]')
-        button.simulate('click');
-        expect(spy).toBeCalled();
-        //ESTA FUNCION NO SE PUEDE PROBAR PORQUE EL BOTON NO SE HA CREADO, 
-        //TIENE QUE HACER EL MAP DE LOS DATOS QUE HA RECOGIDO DE LA PETICION
-        //DE AXIOS (RoomList.jsx / componenDidMount() / Ln: 31-36)
-    })
-
     test('should call onFilterChange when PRICE_FROM value\'s change', () => {
         const wrapper = shallow (<RoomList />)
         const spy = jest.spyOn(wrapper.instance(), 'onFilterChange')
