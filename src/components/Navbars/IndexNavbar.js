@@ -86,13 +86,8 @@ function IndexNavbar() {
             <Nav navbar>
               <NavItem>
                 <NavLink
-                  href="#pablo"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document
-                      .getElementById("download-section")
-                      .scrollIntoView();
-                  }}
+                  href="https://github.com/hiitoos/hotelFront"
+
                 >
                   <i className="now-ui-icons arrows-1_cloud-download-93"></i>
                   <span>Download</span>
