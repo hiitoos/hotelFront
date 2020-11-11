@@ -87,6 +87,7 @@ function IndexNavbar() {
               <NavItem>
                 <NavLink
                   href="https://github.com/hiitoos/hotelFront"
+                  target="_blank"
 
                 >
                   <i className="now-ui-icons arrows-1_cloud-download-93"></i>
