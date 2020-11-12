@@ -40,10 +40,10 @@ class ThankYouPage extends Component {
                     <Row className="idReserva"><h1><span>Booking: </span> #{this.state.booking.id}#</h1><br/></Row>
                     <Row className="fechas">
                         <Col lg={6}>
-                            <span className="check">Check in:</span> <span className="horario">(From 14.00h)</span> <br/><h2>{this.state.booking.fechaIn}</h2><br/>
+                            <span className="check">Día de entrada:</span> <span className="horario">(A partir de las 14.00h)</span> <br/><h2>{this.state.booking.fechaIn}</h2><br/>
                         </Col>
                         <Col lg={6}>
-                            <span className="check">Check out:</span><span className="horario">(To 10.00h)</span><br/><h2>{this.state.booking.fechaOut}</h2><br/>
+                            <span className="check">Día de salida:</span><span className="horario">(Hasta las 10.00h)</span><br/><h2>{this.state.booking.fechaOut}</h2><br/>
                         </Col>
                     </Row>
                     <Row>

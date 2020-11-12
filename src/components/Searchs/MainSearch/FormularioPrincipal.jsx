@@ -60,21 +60,25 @@ function Search(props) {
             <Container className='filter'>
                 <Row>
                     <Col lg={6}>
-                        <input type='number' placeholder='Desde... ' name='price_from' value={filter.price_from}
+                        <label to='price_from'>A partir de ... €</label>
+                        <input type='number' placeholder='-' name='price_from' min={0} value={filter.price_from}
                         onChange={handleChange} />
                     </Col>
                     <Col lg={6}>
-                        <input type='number' placeholder='Hasta...' name='price_to' value={filter.price_to}
+                        <label to='price_to'>Hasta ... €</label>
+                        <input type='number' placeholder='-' name='price_to' min={0} value={filter.price_to}
                         onChange={handleChange} />
                     </Col>
                 </Row>
                 <Row>
                     <Col lg={12}>
+                        <label to='type'>Tipo de habitación</label><br/>
                         <input type='text' placeholder='Simple, Doble, Enorme...' name='type' value={filter.type} onChange={handleChange} />
                     </Col>
                 </Row>
                 <Row className="datepickers">
                     <Col lg={6}>
+                        <label to='date_from'>Fecha de entrada</label><br/>
                         <DatePicker
                             className='datepicker_from' 
                             name='date_from' 
@@ -87,6 +91,7 @@ function Search(props) {
                         />
                     </Col>
                     <Col lg={6}>
+                    <label to='date_to'>Fecha de salida</label><br/>
                         <DatePicker 
                             className='datepicker_to' 
                             name='date_to' 

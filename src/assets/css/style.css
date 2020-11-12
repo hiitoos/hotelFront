@@ -162,7 +162,7 @@
 .search {
     position: fixed;
     z-index: 1050;
-    top: 78.6%;
+    top: 75%;
     display: block;
     overflow: visible;
 }
