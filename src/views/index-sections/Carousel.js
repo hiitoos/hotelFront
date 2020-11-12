@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Fragment} from "react";
 
 // reactstrap components
 import {
@@ -62,7 +62,7 @@ function CarouselSection() {
     setActiveIndex(newIndex);
   };
   return (
-    <>
+    <Fragment>
       <div className="section" id="carousel">
         <Container>
           <Row className="justify-content-center">
@@ -120,7 +120,7 @@ function CarouselSection() {
           </Row>
         </Container>
       </div>
-    </>
+    </Fragment>
   );
 }
 

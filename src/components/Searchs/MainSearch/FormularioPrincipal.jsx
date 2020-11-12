@@ -61,12 +61,12 @@ function Search(props) {
                 <Row>
                     <Col lg={6}>
                         <label to='price_from'>A partir de ... €</label>
-                        <input type='number' placeholder='-' name='price_from' min={0} value={filter.price_from}
+                        <input type='number' placeholder='-------------------------------' name='price_from' min={0} value={filter.price_from}
                         onChange={handleChange} />
                     </Col>
                     <Col lg={6}>
                         <label to='price_to'>Hasta ... €</label><br/>
-                        <input type='number' placeholder='-' name='price_to' min={0} value={filter.price_to}
+                        <input type='number' placeholder='-------------------------------' name='price_to' min={0} value={filter.price_to}
                         onChange={handleChange} />
                     </Col>
                 </Row>

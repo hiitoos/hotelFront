@@ -22,6 +22,7 @@ class RoomList extends Component {
                 date_from: now,
                 date_to: now,   
             },
+            filterVisible: false,
         }
         this.handleEvent = this.handleEvent.bind(this);
         this.onFilterChange = this.onFilterChange.bind(this);
@@ -32,6 +33,24 @@ class RoomList extends Component {
             this.setState({ rooms : res.data });
             console.log(res.data);
         });
+
+         const showFilter = () => {
+            if (
+                document.documentElement.scrollTop > 150 ||
+                document.body.scrollTop > 150
+            ) {
+                this.setState({filterVisible: true});
+            } else if (
+                document.documentElement.scrollTop < 400 ||
+                document.body.scrollTop < 400
+            ) {
+                this.setState({filterVisible: false});
+            }
+        };
+        window.addEventListener("scroll", showFilter);
+        return function cleanup() {
+            window.removeEventListener("scroll", showFilter);
+        };
     }
 
     handleEvent(id){
@@ -80,7 +99,7 @@ class RoomList extends Component {
             <Row className="listRooms">
                 <Col lg={9}>
                     <div>
-                        {
+                        {roomsFiltered.length!=0 ?
                             roomsFiltered.map(
                                 rooms => 
                                 <Container key={rooms.id} className="listaRoomWithImg">
@@ -108,12 +127,20 @@ class RoomList extends Component {
                                     <br></br>
                                 </Container>
                             )
+                            :
+                            <Container className="noHabs">
+                                <Row>
+                                    Nos disponemos de habitaciones con el criterio seleccionado.<br/>
+                                    Disculpe las molestias
+                                </Row>
+                            </Container>
                         }
                     <br/>       
                     </div>
                 </Col>
+
                 <Col lg={3}>
-                    <Formulario className="formPrincipal" onFilterChange={this.onFilterChange}/>
+                    {this.state.filterVisible?<Formulario className="formPrincipal" onFilterChange={this.onFilterChange} /> : <></>}
                 </Col>
             </Row>
         )

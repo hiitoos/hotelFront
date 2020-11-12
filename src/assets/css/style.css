@@ -6,7 +6,6 @@
 }
 
 .navbar.navbar-notransparent{
-    /* background-image: url("../img/banner.jpg"); */
     background-color :rgb(151, 114, 65);
     opacity: 80%;
 }
@@ -107,6 +106,7 @@
     background-image: url("../img/skyline_BCN.jpg");
     margin-top: -40px;
     background-repeat: round;
+    z-index: 500;
 }
 
 
@@ -159,9 +159,13 @@
     background-color: rgb(151, 114, 65);
 }
 
+.noHabs{
+    font-size: xx-large;
+}
+
 .search {
-    position: sticky;
-    z-index: 1050;
+    position: fixed;
+    z-index: 300;
     top: 60.5%;
     right: 1%;
     display: block;
