@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
 import PreFinish from '../../ModalBooking/ModalBooking'
-import moment from 'moment'
 import {
     Row,
     Col
@@ -18,7 +17,7 @@ registerLocale('es', es);
 let excludedDates = [];
 
 function Formulario (props){
-    const [startDate, setStartDate] = useState(0);
+    const [startDate, setStartDate] = useState(null);
     const [endDate, setEndDate] = useState(null);
     const [precioTotal, setPrecioTotal] = useState(0);
     const [modal, setModal] = useState(false);
@@ -44,6 +43,7 @@ function Formulario (props){
       
     const calcPrecio = () => {
          props.calcPrecio(dataOut)
+         props.onChangeDates(startDate, endDate);
     }
 
     function confirm (propsHijo) {
@@ -53,18 +53,22 @@ function Formulario (props){
     let dataOut =
     {
         "id":props.idHab, 
-        "checkIn":startDate ? startDate : new Date(), 
-        "checkOut":endDate ? endDate : startDate
+        "checkIn":startDate, 
+        "checkOut":endDate
     };
       
     return(
         <Fragment>
             <Row className="formularioFinal" >
                 <Col lg={4} className="bookButton">
-                        <Button name="bookIt" style={{background:  "rgb(145, 114, 65)"}} className="bookIt" onClick={() => {
-                                                            setModal(!modal)
-                                                            calcPrecio()
-                                                            }  
+                        <Button 
+                            name="bookIt" 
+                            style={{background:  "rgb(145, 114, 65)"}} 
+                            className="bookIt" 
+                            onClick={() => {
+                                setModal(!modal)
+                                calcPrecio()
+                            }  
                         }>Book Now!</Button>
                         <PreFinish
                             name = "modal"
@@ -73,15 +77,15 @@ function Formulario (props){
                             habitacion={props.codHab} 
                             idHab={props.idHab} 
                             precio={precioTotal} 
-                            in={moment(startDate).format('LL').toString()} 
-                            out={moment(endDate).format('LL').toString()} 
+                            in={startDate} 
+                            out={endDate} 
                             onConfirm={confirm}
                         />
                 </Col>
                 <Col lg={4}>
                     <DatePicker
                             name = "datePicker_in"
-                            selected = {startDate || new Date(props.fechaIn)}
+                            selected = {startDate}
                             endDate={endDate}
                             onChange={onChangeIn}
                             minDate={new Date()}

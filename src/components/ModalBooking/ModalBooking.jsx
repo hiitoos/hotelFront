@@ -16,7 +16,7 @@ function PreFinish(props) {
     {
         "checkIn": moment(props.in).format("YYYY-MM-DD"), 
         "checkOut": moment(props.out).format("YYYY-MM-DD"),
-        "precioHab": props.precio.toFixed(2),
+        "precioHab": props.precio.toFixed(2) === undefined ? 0.00 : props.precio.toFixed(2),
         "habId": props.idHab,
         "id_cliente": 1
     };
@@ -32,8 +32,8 @@ function PreFinish(props) {
                     <Modal.Title className="modal-title">Final details of <h1>{props.habitacion}</h1></Modal.Title>
                 </Modal.Header> 
                 <Modal.Body className="modal-body">Summary<br/>
-                    Check in day: {props.in?props.in:"TODAY"}<br/>
-                    Check out day: {props.out?props.out:"TODAY"}<br/>
+                    Check in day: {moment(props.in).format('LL').toString()}<br/>
+                    Check out day: {moment(props.out).format('LL').toString()}<br/>
                     Final price: {props.precio.toFixed(2)}€<br/>
                 </Modal.Body>
                 <Modal.Footer className="modal-footer">

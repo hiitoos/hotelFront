@@ -9,7 +9,6 @@ import Button from 'reactstrap/lib/Button';
 import Formulario from '../../components/Searchs/MainSearch/FormularioPrincipal.jsx'
 import { isDateBetween } from '../../services/date.service';
 import { now } from '../../services/date.service'
-import moment from 'moment'
 
 class RoomList extends Component {
     constructor(props) {
