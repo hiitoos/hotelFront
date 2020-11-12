@@ -65,7 +65,7 @@ function Search(props) {
                         onChange={handleChange} />
                     </Col>
                     <Col lg={6}>
-                        <label to='price_to'>Hasta ... €</label>
+                        <label to='price_to'>Hasta ... €</label><br/>
                         <input type='number' placeholder='-' name='price_to' min={0} value={filter.price_to}
                         onChange={handleChange} />
                     </Col>

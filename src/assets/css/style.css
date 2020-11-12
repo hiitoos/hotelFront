@@ -160,11 +160,18 @@
 }
 
 .search {
-    position: fixed;
+    position: sticky;
     z-index: 1050;
-    top: 75%;
+    top: 60.5%;
+    right: 1%;
     display: block;
     overflow: visible;
+    border: 1px solid;
+    background-color: rgb(151, 114, 65);
+}
+
+.search label{
+    font-weight: 670
 }
 
 .filter input{
