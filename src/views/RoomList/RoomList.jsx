@@ -10,22 +10,25 @@ import Formulario from '../../components/Searchs/MainSearch/FormularioPrincipal.
 import { isDateBetween } from '../../services/date.service';
 import { now } from '../../services/date.service'
 
+const initialFilter = {
+        price_from: '',
+        price_to: '',
+        type: '',
+        date_from: now,
+        date_to: now,   
+}
+
 class RoomList extends Component {
     constructor(props) {
         super(props)
         this.state = {
             rooms: [],
-            filter: {
-                price_from: '',
-                price_to: '',
-                type: '',
-                date_from: now,
-                date_to: now,   
-            },
+            filter: initialFilter,
             filterVisible: false,
         }
         this.handleEvent = this.handleEvent.bind(this);
         this.onFilterChange = this.onFilterChange.bind(this);
+        this.resetFilter = this.resetFilter.bind(this);
     }
 
     componentDidMount(){
@@ -65,6 +68,10 @@ class RoomList extends Component {
 
     onFilterChange(data){
         this.setState({filter: data});
+    }
+
+    resetFilter(){
+        this.setState({filter: initialFilter});
     }
 
     render(){
@@ -120,7 +127,7 @@ class RoomList extends Component {
                                                 €{rooms.precio}<span className="mainnight">/night</span>
                                             </Row>
                                             <Row className="bookButton">
-                                                <Button name="bookRoom" style={{background:  "rgb(145, 114, 65)"}} onClick={() => this.handleEvent(rooms.id)}>Book now!</Button>
+                                                <Button name="bookRoom" style={{background: "rgb(145, 114, 65)"}} onClick={() => this.handleEvent(rooms.id)}>Book now!</Button>
                                             </Row>
                                         </Col>
                                     </Row>
@@ -130,8 +137,13 @@ class RoomList extends Component {
                             :
                             <Container className="noHabs">
                                 <Row>
-                                    Nos disponemos de habitaciones con el criterio seleccionado.<br/>
-                                    Disculpe las molestias
+                                    <Col lg={8}>
+                                        Nos disponemos de habitaciones con el criterio seleccionado.<br/>
+                                        Disculpe las molestias
+                                    </Col>
+                                    <Col lg={4}>
+                                        <Button name="resetFilter" style={{background: "rgb(145, 114, 65)"}} onClick={() => this.resetFilter()}>Restablecer filtro</Button>
+                                    </Col>
                                 </Row>
                             </Container>         
                         }
