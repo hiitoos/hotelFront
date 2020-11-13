@@ -6,7 +6,7 @@ import { Container } from "reactstrap";
 
 function DarkFooter() {
   return (
-    <footer className="footer" data-background-color="black">
+    <footer className="footer">
       <Container>
         <nav>
           <ul>
@@ -15,7 +15,7 @@ function DarkFooter() {
                 href="https://www.creative-tim.com?ref=nukr-dark-footer"
                 target="_blank"
               >
-                Creative Tim
+                &lt;Z-Devs Company&gt;
               </a>
             </li>
             <li>

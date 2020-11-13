@@ -16,13 +16,13 @@ function PreFinish(props) {
     {
         "checkIn": moment(props.in).format("YYYY-MM-DD"), 
         "checkOut": moment(props.out).format("YYYY-MM-DD"),
-        "precioHab": props.precio.toFixed(2) === undefined ? 0.00 : props.precio.toFixed(2),
+        "precioHab": props.precio === undefined ? null : props.precio.toFixed(2),
         "habId": props.idHab,
         "id_cliente": 1
     };
 
     const reservar = () =>{
-        props.onConfirm(dataOut); 
+        if (dataOut.precioHab !== null) props.onConfirm(dataOut); 
     }
 
     return (
@@ -34,13 +34,13 @@ function PreFinish(props) {
                 <Modal.Body className="modal-body">Resumen de la reserva:<br/>
                     Día de entrada: {moment(props.in).format('LL').toString()}<br/>
                     Día de salida: {moment(props.out).format('LL').toString()}<br/>
-                    Precio final: {props.precio.toFixed(2)}€<br/>
+                    Precio final: {props.precio===undefined?0.00: props.precio.toFixed(2)}€<br/>
                 </Modal.Body>
                 <Modal.Footer className="modal-footer">
-                    <Button name="closeBtn" variant="secondary" onClick={handleClose}>
+                    <Button name="closeBtn" variant="secondary" style={{background: "rgb(145, 114, 65)"}} onClick={handleClose}>
                         Atrás
                     </Button>
-                    <Button name="bookNow" variant="primary" onClick={() => {
+                    <Button name="bookNow" style={{background: "rgb(145, 114, 65)"}} variant="primary" onClick={() => {
                                                             handleClose()
                                                             reservar()
                                                             }

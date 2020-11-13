@@ -99,7 +99,7 @@ class RoomList extends Component {
             <Row className="listRooms">
                 <Col lg={9}>
                     <div>
-                        {roomsFiltered.length!=0 ?
+                        {roomsFiltered.length!==0 ?
                             roomsFiltered.map(
                                 rooms => 
                                 <Container key={rooms.id} className="listaRoomWithImg">
@@ -133,12 +133,11 @@ class RoomList extends Component {
                                     Nos disponemos de habitaciones con el criterio seleccionado.<br/>
                                     Disculpe las molestias
                                 </Row>
-                            </Container>
+                            </Container>         
                         }
                     <br/>       
                     </div>
                 </Col>
-
                 <Col lg={3}>
                     {this.state.filterVisible?<Formulario className="formPrincipal" onFilterChange={this.onFilterChange} /> : <></>}
                 </Col>
