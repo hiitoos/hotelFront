@@ -11,8 +11,8 @@ import { now } from '../../../services/date.service';
 registerLocale('es', es);
 
 const initialFilter = {
-    price_from: '',
-    price_to: '',
+    price_from: 150,
+    price_to: 700,
     type: '',
     date_from: now,
     date_to: now,
@@ -22,7 +22,7 @@ function Search(props) {
 
     const [filter, setFilter] = useState(initialFilter);
 
-    function handleChange(event) {
+    const  handleChange = (event) => {
         setFilter({
             ...filter,
             [event.target.name]: event.target.value,
@@ -61,15 +61,29 @@ function Search(props) {
                 <Row>
                     <Col lg={12}>
                         <label to='price_from'>A partir de ... €</label><br/>
-                        <input type='number' placeholder='-------------------------------' name='price_from' min={0} value={filter.price_from}
-                        onChange={handleChange} />
+                        <input 
+                            type='range'
+                            name='price_from' 
+                            min={150} 
+                            max={filter.price_to}
+                            step={50} 
+                            value={filter.price_from}
+                            onChange={handleChange}
+                        />
                     </Col>
                 </Row>
                 <Row>
                     <Col lg={12}>
                         <label to='price_to'>Hasta ... €</label><br/>
-                        <input type='number' placeholder='-------------------------------' name='price_to' min={0} value={filter.price_to}
-                        onChange={handleChange} />
+                        <input 
+                            type='range' 
+                            name='price_to' 
+                            min={filter.price_from} 
+                            max={700}
+                            step={50} 
+                            value={filter.price_to}
+                            onChange={handleChange}
+                        />
                     </Col>
                 </Row>
                 <Row>

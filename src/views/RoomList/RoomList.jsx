@@ -11,8 +11,8 @@ import { isDateBetween } from '../../services/date.service';
 import { now } from '../../services/date.service'
 
 const initialFilter = {
-        price_from: '',
-        price_to: '',
+        price_from: 0,
+        price_to: 0,
         type: '',
         date_from: now,
         date_to: now,   

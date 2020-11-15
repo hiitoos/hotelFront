@@ -70,7 +70,7 @@ class Singleroom extends Component {
                                 <Col lg={12}>
                                     <img src={require(`../../assets/img/${this.state.room.habitacion.codigo!==undefined
                                                                             ? this.state.room.habitacion.codigo
-                                                                            : "blank"
+                                                                            : "null"
                                                                     }.jpg`)
                                             } alt="imagen1" />
                                 </Col><br />
