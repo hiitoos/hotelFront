@@ -11,8 +11,8 @@ import { now } from '../../../services/date.service';
 registerLocale('es', es);
 
 const initialFilter = {
-    price_from: 150,
-    price_to: 700,
+    price_from: '150',
+    price_to: '700',
     type: '',
     date_from: now,
     date_to: now,

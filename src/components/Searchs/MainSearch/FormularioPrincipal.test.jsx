@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker'
 import { shallow, mount } from 'enzyme'
 import { now } from '../../../services/date.service'
 
-describe.skip('MainSearch unit test', () => {
+describe('MainSearch unit test', () => {
     test('it should render without crashing', () =>{
         const wrapper = shallow (<FormularioPrincipal />);
         expect(wrapper).toMatchSnapshot();
@@ -25,7 +25,7 @@ describe.skip('MainSearch unit test', () => {
         wrapper.find('input[name="price_from"]').simulate('change', {target:{name:'price_from', value: '100'}});
         expect (mockUpdateFilter).toHaveBeenCalledWith({
             price_from: '100',
-            price_to: '',
+            price_to: '700',
             type: '',
             date_from: now,
             date_to: now,
@@ -37,7 +37,7 @@ describe.skip('MainSearch unit test', () => {
         const wrapper = shallow (<FormularioPrincipal onFilterChange={mockUpdateFilter}/>);
         wrapper.find('input[name="price_to"]').simulate('change', {target:{name:'price_to', value: '200'}});
         expect (mockUpdateFilter).toHaveBeenCalledWith({
-            price_from: '',
+            price_from: '150',
             price_to: '200',
             type: '',
             date_from: now,
@@ -50,8 +50,8 @@ describe.skip('MainSearch unit test', () => {
         const wrapper = shallow (<FormularioPrincipal onFilterChange={mockUpdateFilter}/>);
         wrapper.find('input[name="type"]').simulate('change', {target:{name:'type', value: 'Simple'}});
         expect (mockUpdateFilter).toHaveBeenCalledWith({
-            price_from: '',
-            price_to: '',
+            price_from: '150',
+            price_to: '700',
             type: 'Simple',
             date_from: now,
             date_to: now,

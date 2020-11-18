@@ -5,6 +5,8 @@ import DarkFooter from "components/Footers/DarkFooter.js";
 
 import RoomList from "./RoomList/RoomList.jsx"
 import Carousel from "./index-sections/Carousel.js";
+//import RoomService from "../services/room.service"
+
 
 
 function Index(props) {
@@ -14,18 +16,21 @@ function Index(props) {
     document.documentElement.classList.remove("nav-open");
     window.scrollTo(0, 0);
     document.body.scrollTop = 0;
+
     return function cleanup() {
       document.body.classList.remove("index-page");
       document.body.classList.remove("sidebar-collapse");
     };
+
   });
+
   return (
     <>
       <IndexNavbar />
       <div className="wrapper">
         <div className="main">
           <Carousel /><br/>
-          <RoomList  {...props}/>
+          <RoomList {...props}/>
         </div>
         <DarkFooter />
       </div>

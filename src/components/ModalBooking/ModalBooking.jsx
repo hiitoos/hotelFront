@@ -47,7 +47,6 @@ function PreFinish(props) {
                     }>
                         ¡Reservar!
                     </Button>
-                    <input type="email" placeholder="Introduzca un email"></input>
                 </Modal.Footer>
             </Modal>
         </Fragment>

@@ -3,7 +3,7 @@ import {shallow} from 'enzyme'
 import RoomList from './RoomList.jsx'
 import Formulario from 'components/Searchs/MainSearch/FormularioPrincipal'
 
-describe.skip('RoomList unit test', () => {
+describe('RoomList unit test', () => {
     test('should have required items', () => {
         const wrapper = shallow (<RoomList />);
         let clase = wrapper.find('.listRooms');
@@ -33,4 +33,11 @@ describe.skip('RoomList unit test', () => {
         component.find('[name="type"]').simulate('change', { target: { name: 'type', value: 'Simple' }});
         expect(spy).toBeCalled();
     })
+
+    // test('should should an error msg when api is down', async() =>{
+    //     const wrapper = shallow (<RoomList />)
+    //     //expect(wrapper.getRoomsHandler).
+    //     const mock = jest.fn(async ()=>{throw new Error()});
+        
+    // })
 })

@@ -32,12 +32,8 @@ class RoomList extends Component {
     }
 
     componentDidMount(){
-        RoomService.getAllRooms().then((res) => {
-            this.setState({ rooms : res.data });
-            console.log(res.data);
-        });
-
-         const showFilter = () => {
+        this.getRoomsHandler();
+        const showFilter = () => {
             if (
                 document.documentElement.scrollTop > 150 ||
                 document.body.scrollTop > 150
@@ -54,6 +50,18 @@ class RoomList extends Component {
         return function cleanup() {
             window.removeEventListener("scroll", showFilter);
         };
+    }
+
+    getRoomsHandler(){
+        try{
+            RoomService.getAllRooms().then((res) => {
+                console.log(res.data);
+                this.setState({ rooms : res.data });
+            });
+        }
+        catch{
+            console.log("Error de petición a la API")
+        }
     }
 
     handleEvent(id){
