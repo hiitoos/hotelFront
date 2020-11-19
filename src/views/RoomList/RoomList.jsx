@@ -22,7 +22,7 @@ class RoomList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            rooms: [],
+            rooms: this.props.rooms,
             filter: initialFilter,
             filterVisible: false,
         }
@@ -32,7 +32,7 @@ class RoomList extends Component {
     }
 
     componentDidMount(){
-        this.getRoomsHandler();
+
         const showFilter = () => {
             if (
                 document.documentElement.scrollTop > 150 ||
@@ -50,18 +50,6 @@ class RoomList extends Component {
         return function cleanup() {
             window.removeEventListener("scroll", showFilter);
         };
-    }
-
-    getRoomsHandler(){
-        try{
-            RoomService.getAllRooms().then((res) => {
-                console.log(res.data);
-                this.setState({ rooms : res.data });
-            });
-        }
-        catch{
-            console.log("Error de petición a la API")
-        }
     }
 
     handleEvent(id){

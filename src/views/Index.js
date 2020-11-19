@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import DarkFooter from "components/Footers/DarkFooter.js";
 
 
 import RoomList from "./RoomList/RoomList.jsx"
 import Carousel from "./index-sections/Carousel.js";
-//import RoomService from "../services/room.service"
+import RoomService from "../services/room.service"
 
 
 
 function Index(props) {
-  React.useEffect(() => {
+  const [state, setState] = useState([])
+  React.useEffect(() => { 
+    RoomService.getAllRooms().then((data) => setState(data))
+
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
     document.documentElement.classList.remove("nav-open");
@@ -22,7 +25,7 @@ function Index(props) {
       document.body.classList.remove("sidebar-collapse");
     };
 
-  });
+  }, [props]);
 
   return (
     <>
@@ -30,7 +33,7 @@ function Index(props) {
       <div className="wrapper">
         <div className="main">
           <Carousel /><br/>
-          <RoomList {...props}/>
+          {state.length!==0?<RoomList {...props} rooms={state}/>:<></>}
         </div>
         <DarkFooter />
       </div>
