@@ -21,16 +21,17 @@ const match = {
     }
 };
 
-describe.skip('SingleRoom unit test', () => {
+describe('SingleRoom unit test', () => {
     test('should have required items', () => {
-        const wrapper = shallow (<SingleRoom match={match}/>);
+        const wrapper = shallow (<SingleRoom match={match} />);
         expect(wrapper.find('.singleRoom')).toHaveLength(1)
     })
 
     test('should spy calcPrecio function and be called', () => {
+        const mock = jest.fn();
         const wrapper = shallow (<SingleRoom match={match}/>)
         const spy = jest.spyOn(wrapper.instance(), 'calcPrecio')
-        const component = shallow (<FormularioFinal calcPrecio = {spy}/>)
+        const component = shallow (<FormularioFinal calcPrecio = {spy} onChangeDates={mock}/>)
         component.find('[name="bookIt"]').simulate('click');
         expect(spy).toBeCalled();
     })
