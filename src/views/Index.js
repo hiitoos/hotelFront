@@ -12,7 +12,7 @@ import RoomService from "../services/room.service"
 function Index(props) {
   const [state, setState] = useState([])
   React.useEffect(() => { 
-    RoomService.getAllRooms().then((data) => setState(data))
+    RoomService.getAllRooms().then((data) => setState(data)).catch(console.log("ERROR en la conexión a la API"))
 
     document.body.classList.add("index-page");
     document.body.classList.add("sidebar-collapse");
